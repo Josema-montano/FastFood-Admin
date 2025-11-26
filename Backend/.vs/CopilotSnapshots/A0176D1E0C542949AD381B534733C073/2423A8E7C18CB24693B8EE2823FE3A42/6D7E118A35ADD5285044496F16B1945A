@@ -1,0 +1,25 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Infraestructure.Repositorios
+{
+ public class ProveedorRepositorio : IProveedorRepositorio
+ {
+ private readonly AppDbContext _context;
+ public ProveedorRepositorio(AppDbContext context) { _context = context; }
+ public async Task<IEnumerable<Proveedor>> ListarAsync() => await _context.Proveedores.AsNoTracking().ToListAsync();
+ public async Task<Proveedor?> ObtenerPorIdAsync(Guid id) => await _context.Proveedores.FindAsync(id);
+ public async Task CrearAsync(Proveedor proveedor) { _context.Proveedores.Add(proveedor); await _context.SaveChangesAsync(); }
+ public async Task ActualizarAsync(Proveedor proveedor) { _context.Proveedores.Update(proveedor); await _context.SaveChangesAsync(); }
+ public async Task EliminarAsync(Guid id)
+ {
+ var prov = await _context.Proveedores.FindAsync(id);
+ if (prov != null) { _context.Proveedores.Remove(prov); await _context.SaveChangesAsync(); }
+ }
+ }
+}

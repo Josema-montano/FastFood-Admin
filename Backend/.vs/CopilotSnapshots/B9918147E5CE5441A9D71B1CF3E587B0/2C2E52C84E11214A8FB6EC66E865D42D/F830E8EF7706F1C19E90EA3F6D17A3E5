@@ -1,0 +1,30 @@
+﻿using Aplication.UseCases.Inventarios;
+using Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/alertas")]
+ public class AlertasController : ControllerBase
+ {
+ private readonly GenerarAlertasStockMinimo _generar;
+ private readonly IInventarioRepositorio _inventarioRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ public AlertasController(GenerarAlertasStockMinimo generar, IInventarioRepositorio inventarioRepo, IProductoRepositorio productoRepo){ _generar = generar; _inventarioRepo = inventarioRepo; _productoRepo = productoRepo; }
+
+ [HttpGet("stock-bajo")]
+ public async Task<IActionResult> StockBajo()
+ {
+ var productos = await _productoRepo.ListarAsync();
+ var inventarios = await _inventarioRepo.ListarAsync();
+ var alertas = from i in inventarios
+ join p in productos on i.ProductoId equals p.Id
+ where i.Stock < p.StockMinimo && p.StockMinimo >0
+ select new { p.Id, p.Nombre, StockActual = i.Stock, StockMinimo = p.StockMinimo };
+ return Ok(alertas);
+ }
+ }
+}

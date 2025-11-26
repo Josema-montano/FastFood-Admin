@@ -1,0 +1,40 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Microsoft.AspNetCore.SignalR;
+using API.Hubs;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Pedidos
+{
+ public class ActualizarEstadoPedido
+ {
+ private readonly IPedidoRepositorio _pedidoRepo;
+ private readonly IHubContext<PedidosHub> _hub;
+ public ActualizarEstadoPedido(IPedidoRepositorio pedidoRepo, IHubContext<PedidosHub> hub){ _pedidoRepo = pedidoRepo; _hub = hub; }
+
+ public async Task EjecutarAsync(Guid pedidoId, EstadoPedido nuevoEstado)
+ {
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(pedidoId) ?? throw new ArgumentException("Pedido no encontrado");
+ if (!TransicionValida(pedido.Estado, nuevoEstado)) throw new InvalidOperationException("Transición de estado inválida");
+ pedido.Estado = nuevoEstado;
+ pedido.HistorialEstados.Add(new PedidoEstadoHistorial { Id = Guid.NewGuid(), PedidoId = pedido.Id, Estado = pedido.Estado, CambioEn = DateTime.UtcNow });
+ await _pedidoRepo.ActualizarAsync(pedido);
+ await _hub.Clients.Group("cocina").SendAsync("PedidoEstado", new { pedido.Id, pedido.Estado });
+ await _hub.Clients.Group($"mesa-{pedido.Mesa}").SendAsync("PedidoEstado", new { pedido.Id, pedido.Estado });
+ }
+
+ private bool TransicionValida(EstadoPedido actual, EstadoPedido nuevo)
+ {
+ if (actual == nuevo) return false;
+ return (actual, nuevo) switch
+ {
+ (EstadoPedido.CREADO, EstadoPedido.EN_PREPARACION) => true,
+ (EstadoPedido.EN_PREPARACION, EstadoPedido.LISTO) => true,
+ (EstadoPedido.LISTO, EstadoPedido.ENTREGADO) => true,
+ (_, EstadoPedido.CANCELADO) => true,
+ _ => false
+ };
+ }
+ }
+}

@@ -1,0 +1,25 @@
+using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
+
+namespace Infraestructure.Repositorios
+{
+    public class UsuarioRepositorio : IUsuarioRepositorio
+    {
+        private readonly AppDbContext _context;
+        public UsuarioRepositorio(AppDbContext context){ _context = context; }
+        public async Task<Usuario> RegistrarAsync(Usuario usuario){ _context.Usuarios.Add(usuario); await _context.SaveChangesAsync(); return usuario; }
+        public async Task<Usuario?> ObtenerPorEmailAsync(string email)=> await _context.Usuarios.FirstOrDefaultAsync(u=>u.Email==email);
+        public async Task<Usuario?> ObtenerPorIdAsync(Guid id)=> await _context.Usuarios.FirstOrDefaultAsync(u=>u.Id==id);
+        public async Task<IEnumerable<Usuario>> ListarAsync()=> await _context.Usuarios.AsNoTracking().ToListAsync();
+        public async Task ActualizarAsync(Usuario usuario)
+        {
+            _context.Usuarios.Update(usuario);
+            await _context.SaveChangesAsync();
+        }
+    }
+}

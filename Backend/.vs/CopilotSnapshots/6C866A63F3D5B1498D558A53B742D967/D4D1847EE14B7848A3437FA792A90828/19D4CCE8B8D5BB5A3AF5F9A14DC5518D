@@ -1,0 +1,81 @@
+﻿using Aplication.UseCases.Reportes;
+using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/reportes")]
+ [Authorize]
+ public class ReportesController : ControllerBase
+ {
+ private readonly GenerarReporteInventario _reporteInventario;
+ private readonly GenerarReportePagos _reportePagos;
+
+ public ReportesController(
+   GenerarReporteInventario reporteInventario,
+      GenerarReportePagos reportePagos)
+ {
+       _reporteInventario = reporteInventario;
+         _reportePagos = reportePagos;
+      }
+
+   [HttpGet("inventario")]
+        public async Task<IActionResult> Inventario([FromQuery] string generadoPor = "sistema")
+        {
+    try
+ {
+         Reporte r = await _reporteInventario.EjecutarAsync(generadoPor);
+      return Ok(r);
+     }
+       catch (Exception ex)
+            {
+       return StatusCode(500, new { mensaje = "Error al generar reporte de inventario", detalle = ex.Message });
+   }
+   }
+
+     /// <summary>
+/// Genera reporte de pagos realizados (por defecto últimos 30 días)
+     /// </summary>
+        [HttpGet("pagos")]
+        public async Task<IActionResult> Pagos(
+            [FromQuery] string generadoPor = "sistema",
+        [FromQuery] DateTime? fechaInicio = null,
+            [FromQuery] DateTime? fechaFin = null,
+            [FromQuery] bool soloRealizados = true)
+        {
+            try
+      {
+     Reporte r = await _reportePagos.EjecutarAsync(generadoPor, fechaInicio, fechaFin, soloRealizados);
+    return Ok(r);
+      }
+   catch (Exception ex)
+  {
+     return StatusCode(500, new { mensaje = "Error al generar reporte de pagos", detalle = ex.Message });
+}
+        }
+
+      /// <summary>
+        /// Genera reporte de pagos realizados
+        /// </summary>
+        [HttpGet("pagos/realizados")]
+        public async Task<IActionResult> PagosRealizados(
+ [FromQuery] string generadoPor = "sistema",
+            [FromQuery] DateTime? fechaInicio = null,
+            [FromQuery] DateTime? fechaFin = null)
+        {
+            try
+{
+    Reporte r = await _reportePagos.EjecutarAsync(generadoPor, fechaInicio, fechaFin, soloRealizados: true);
+   return Ok(r);
+    }
+            catch (Exception ex)
+       {
+                return StatusCode(500, new { mensaje = "Error al generar reporte de pagos realizados", detalle = ex.Message });
+ }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Infraestructure.Repositorios
+{
+ public class ProductoRepositorio : IProductoRepositorio
+ {
+ private readonly AppDbContext _context;
+ public ProductoRepositorio(AppDbContext context) { _context = context; }
+
+ public async Task<IEnumerable<Producto>> ListarAsync()
+ => await _context.Productos.AsNoTracking().ToListAsync();
+
+ public async Task<IEnumerable<Producto>> ListarConProveedorAsync()
+ => await _context.Productos.Include(p => p.Proveedor).AsNoTracking().ToListAsync();
+
+        public async Task<Producto?> ObtenerPorIdAsync(int id)
+      => await _context.Productos.Include(p=>p.Proveedor).FirstOrDefaultAsync(x=>x.Id==id);
+
+ public async Task<Producto?> ObtenerPorCodigoAsync(string codigo)
+ => await _context.Productos.FirstOrDefaultAsync(p => p.Codigo == codigo);
+
+ public async Task CrearAsync(Producto producto)
+ {
+ _context.Productos.Add(producto);
+ await _context.SaveChangesAsync();
+ }
+
+ public async Task ActualizarAsync(Producto producto)
+ {
+ _context.Productos.Update(producto);
+ await _context.SaveChangesAsync();
+ }
+
+        public async Task EliminarAsync(int id)
+        {
+            var prod = await _context.Productos.FindAsync(id);
+      if (prod != null)
+       {
+       _context.Productos.Remove(prod);
+    await _context.SaveChangesAsync();
+            }
+        }
+ }
+}

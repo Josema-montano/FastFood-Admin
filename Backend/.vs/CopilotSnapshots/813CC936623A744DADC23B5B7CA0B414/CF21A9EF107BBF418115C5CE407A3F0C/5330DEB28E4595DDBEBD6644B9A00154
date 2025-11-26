@@ -1,0 +1,40 @@
+﻿using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+namespace Aplication.UseCases.Pedidos
+{
+ public class ActualizarEstadoPedido
+ {
+ private readonly IPedidoRepositorio _pedidoRepo;
+ public ActualizarEstadoPedido(IPedidoRepositorio pedidoRepo){ _pedidoRepo = pedidoRepo; }
+
+ public async Task EjecutarAsync(Guid pedidoId, EstadoPedido nuevoEstado)
+ {
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(pedidoId) ?? throw new ArgumentException("Pedido no encontrado");
+ if (!TransicionValida(pedido.Estado, nuevoEstado)) throw new InvalidOperationException("Transición de estado inválida");
+ pedido.Estado = nuevoEstado;
+ pedido.HistorialEstados.Add(new PedidoEstadoHistorial { Id = Guid.NewGuid(), PedidoId = pedido.Id, Estado = pedido.Estado, CambioEn = DateTime.UtcNow });
+ try
+ {
+ await _pedidoRepo.ActualizarAsync(pedido);
+ }
+ catch (DbUpdateConcurrencyException)
+ {
+ throw new InvalidOperationException("No se pudo actualizar el estado (concurrencia). Verifique que el pedido exista.");
+ }
+ }
+
+ private bool TransicionValida(EstadoPedido actual, EstadoPedido nuevo)
+ {
+ if (actual == nuevo) return false;
+ return (actual, nuevo) switch
+ {
+ (EstadoPedido.PENDIENTE, EstadoPedido.EN_PREPARACION) => true,
+ (EstadoPedido.EN_PREPARACION, EstadoPedido.LISTO) => true,
+ _ => false
+ };
+ }
+ }
+}

@@ -1,0 +1,193 @@
+﻿using Aplication.Mapping;
+using Aplication.UseCases.Pedidos;
+using Aplication.UseCases.Productos;
+using Aplication.UseCases.Inventarios;
+using Aplication.UseCases.Usuarios;
+using Aplication.UseCases.Reportes;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Infraestructure.Repositorios;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+using API.Hubs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using API.Middleware;
+using Microsoft.AspNetCore.Http.Features; // límite multipart
+using System.IO;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Configuración JWT simple
+var jwtKey = builder.Configuration["Jwt:Key"] ?? "ClaveSuperSecretaMinima123456789"; // usar secreto seguro
+var keyBytes = Encoding.UTF8.GetBytes(jwtKey);
+
+builder.Services.AddAuthentication(options =>
+{
+ options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+ options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+ options.TokenValidationParameters = new TokenValidationParameters
+ {
+ ValidateIssuer = false,
+ ValidateAudience = false,
+ ValidateIssuerSigningKey = true,
+ IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+ ValidateLifetime = true,
+ ClockSkew = TimeSpan.FromMinutes(1)
+ };
+ // Extraer automáticamente token de cookie o query (para SignalR)
+ options.Events = new JwtBearerEvents
+ {
+ OnMessageReceived = context =>
+ {
+ // Cookie
+ var cookieToken = context.Request.Cookies["access_token"]; 
+ if (!string.IsNullOrEmpty(cookieToken))
+ {
+ context.Token = cookieToken;
+ return Task.CompletedTask;
+ }
+ // Query (ej: websockets / SignalR)
+ if (string.IsNullOrEmpty(context.Token) && context.Request.Query.TryGetValue("access_token", out var queryToken))
+ {
+ context.Token = queryToken; 
+ }
+ return Task.CompletedTask;
+ }
+ };
+});
+
+builder.Services.AddCors(options =>
+{
+ options.AddPolicy("AllowFrontend", policy =>
+ {
+ policy.WithOrigins(
+ "http://localhost:5173",
+ "http://localhost:5174",
+ "http://localhost:3000"
+ )
+ .AllowAnyHeader()
+ .AllowAnyMethod()
+ .AllowCredentials();
+ });
+});
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// SignalR
+builder.Services.AddSignalR();
+
+// Repositorios
+builder.Services.AddScoped<IProductoRepositorio, ProductoRepositorio>();
+builder.Services.AddScoped<IInventarioRepositorio, InventarioRepositorio>();
+builder.Services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
+builder.Services.AddScoped<IPagoRepositorio, PagoRepositorio>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+
+// Casos de uso pedidos
+builder.Services.AddScoped<CrearPedido>();
+builder.Services.AddScoped<ListarPedidos>();
+builder.Services.AddScoped<ActualizarEstadoPedido>();
+builder.Services.AddScoped<RegistrarPagoPedido>();
+
+// Casos de uso productos
+builder.Services.AddScoped<CrearProducto>();
+builder.Services.AddScoped<ActualizarProducto>();
+builder.Services.AddScoped<EliminarProducto>();
+builder.Services.AddScoped<ObtenerProductoPorId>();
+builder.Services.AddScoped<ListarProductos>();
+
+// Casos de uso inventario
+builder.Services.AddScoped<CrearInventario>();
+builder.Services.AddScoped<ActualizarInventario>();
+builder.Services.AddScoped<ObtenerInventarioPorProducto>();
+builder.Services.AddScoped<ListarInventarios>();
+builder.Services.AddScoped<GenerarAlertasStockMinimo>();
+
+// Casos de uso usuarios
+builder.Services.AddScoped<RegistrarUsuario>();
+builder.Services.AddScoped<Login>();
+builder.Services.AddScoped<ListarUsuarios>();
+
+// Casos de uso reportes
+builder.Services.AddScoped<GenerarReporteInventario>();
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+ options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+ options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+});
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddAuthorization();
+
+builder.Services.Configure<FormOptions>(o =>
+{
+ o.MultipartBodyLengthLimit =20 *1024 *1024; //20MB
+});
+
+// Asegurar existencia de wwwroot antes de construir y configurar WebRootPath explícito
+var webRootPath = Path.Combine(builder.Environment.ContentRootPath, "wwwroot");
+if(!Directory.Exists(webRootPath)) Directory.CreateDirectory(webRootPath);
+builder.WebHost.UseWebRoot("wwwroot");
+
+// Registrar handler global de excepciones no controladas
+AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+{
+ var ex = args.ExceptionObject as Exception;
+ Console.ForegroundColor = ConsoleColor.Red;
+ Console.WriteLine($"[FATAL] {ex?.GetType().Name}: {ex?.Message}\n{ex?.StackTrace}");
+ Console.ResetColor();
+};
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+ app.UseDeveloperExceptionPage();
+}
+// Middleware global de excepciones
+app.UseExceptionHandler(errorApp =>
+{
+ errorApp.Run(async context =>
+ {
+ var feature = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>();
+ var ex = feature?.Error;
+ Console.WriteLine($"[ERROR] {ex?.Message}\n{ex?.StackTrace}");
+ context.Response.StatusCode =500;
+ context.Response.ContentType = "application/json";
+ var mensaje = ex?.Message ?? "Error interno";
+ await context.Response.WriteAsJsonAsync(new { mensaje });
+ });
+});
+
+// Aplicar migraciones automáticas
+using (var scope = app.Services.CreateScope())
+{
+ var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+ db.Database.Migrate();
+}
+
+if (app.Environment.IsDevelopment())
+{
+ app.UseSwagger();
+ app.UseSwaggerUI();
+}
+
+app.UseCors("AllowFrontend");
+app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseMiddleware<AuditMiddleware>();
+app.UseAuthorization();
+app.UseStaticFiles();
+app.MapControllers();
+app.MapHub<PedidosHub>("/hubs/pedidos");
+app.Run();

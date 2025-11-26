@@ -1,0 +1,56 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Infraestructure.Repositorios
+{
+    public class PedidoRepositorio : IPedidoRepositorio
+    {
+        private readonly AppDbContext _context;
+        public PedidoRepositorio(AppDbContext context) { _context = context; }
+
+        public async Task<Pedido> CrearAsync(Pedido pedido)
+        {
+            _context.Pedidos.Add(pedido);
+            await _context.SaveChangesAsync();
+            return pedido;
+        }
+
+        public async Task<Pedido?> ObtenerPorIdAsync(Guid id)
+            => await _context.Pedidos.Include(p => p.Detalles).ThenInclude(d => d.Producto).Include(p => p.Pago).Include(p => p.HistorialEstados).FirstOrDefaultAsync(p => p.Id == id);
+
+        public async Task<IEnumerable<Pedido>> ListarAsync()
+            => await _context.Pedidos.Include(p => p.Detalles).ThenInclude(d => d.Producto).Include(p => p.Pago).Include(p => p.HistorialEstados).AsNoTracking().ToListAsync();
+
+        public async Task ActualizarAsync(Pedido pedido)
+        {
+            // Cargar entidad trackeada desde base
+            var tracked = await _context.Pedidos.Include(p => p.HistorialEstados).Include(p => p.Pago).FirstOrDefaultAsync(p => p.Id == pedido.Id);
+            if (tracked == null) throw new InvalidOperationException("Pedido no encontrado para actualizar");
+            // Actualizar estado si cambió
+            if (tracked.Estado != pedido.Estado)
+            {
+                tracked.Estado = pedido.Estado;
+            }
+            // Sincronizar historial: agregar entradas nuevas
+            foreach (var h in pedido.HistorialEstados)
+            {
+                if (!tracked.HistorialEstados.Any(e => e.Id == h.Id))
+                {
+                    tracked.HistorialEstados.Add(h);
+                }
+            }
+            // Pago (si se registró uno nuevo)
+            if (pedido.Pago != null && tracked.Pago == null)
+            {
+                tracked.Pago = pedido.Pago;
+            }
+            await _context.SaveChangesAsync();
+        }
+    }
+}

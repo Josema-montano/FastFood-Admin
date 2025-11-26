@@ -1,0 +1,107 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Promociones;
+using AutoMapper;
+using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PromocionesController : ControllerBase
+    {
+        private readonly CrearPromocion _crearPromocion;
+        private readonly ActualizarPromocion _actualizarPromocion;
+        private readonly EliminarPromocion _eliminarPromocion;
+   private readonly ObtenerPromocionPorId _obtenerPromocionPorId;
+ private readonly ListarPromociones _listarPromociones;
+    private readonly IMapper _mapper;
+
+     public PromocionesController(
+CrearPromocion crearPromocion,
+        ActualizarPromocion actualizarPromocion,
+        EliminarPromocion eliminarPromocion,
+    ObtenerPromocionPorId obtenerPromocionPorId,
+        ListarPromociones listarPromociones,
+     IMapper mapper)
+        {
+     _crearPromocion = crearPromocion;
+       _actualizarPromocion = actualizarPromocion;
+       _eliminarPromocion = eliminarPromocion;
+  _obtenerPromocionPorId = obtenerPromocionPorId;
+ _listarPromociones = listarPromociones;
+ _mapper = mapper;
+   }
+
+ [HttpGet]
+        public async Task<IActionResult> GetAll()
+     {
+  var promociones = await _listarPromociones.EjecutarAsync();
+
+    if (!promociones.Any())
+ return NotFound(new { mensaje = "No hay promociones registradas." });
+
+   return Ok(promociones);
+        }
+
+   [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+     var promocion = await _obtenerPromocionPorId.EjecutarAsync(id);
+   if (promocion == null)
+  return NotFound(new { mensaje = "Promoción no encontrada." });
+
+       return Ok(promocion);
+        }
+
+        [HttpPost]
+ public async Task<IActionResult> Create([FromBody] PromocionDTO promocionDTO)
+        {
+   if (!ModelState.IsValid)
+       return BadRequest(ModelState);
+
+            var promocion = _mapper.Map<Promocion>(promocionDTO);
+    var productos = promocionDTO.Productos.Select(p => (p.ProductoId, p.DescuentoPorcentaje));
+        
+    var promocionId = await _crearPromocion.EjecutarAsync(promocion, productos);
+       var promocionCreada = await _obtenerPromocionPorId.EjecutarAsync(promocionId);
+          return CreatedAtAction(nameof(GetById), new { id = promocionId }, promocionCreada);
+      }
+
+   [HttpPut("{id}")]
+   public async Task<IActionResult> Update(int id, [FromBody] PromocionDTO promocionDTO)
+  {
+     if (id != promocionDTO.Id)
+          return BadRequest(new { mensaje = "El ID de la URL no coincide con el ID de la promoción." });
+
+       if (!ModelState.IsValid)
+       return BadRequest(ModelState);
+
+        var promocion = _mapper.Map<Promocion>(promocionDTO);
+   var productos = promocionDTO.Productos?.Select(p => (p.ProductoId, p.DescuentoPorcentaje));
+
+      await _actualizarPromocion.EjecutarAsync(id, promocion, productos);
+       var promocionActualizada = await _obtenerPromocionPorId.EjecutarAsync(id);
+      return Ok(promocionActualizada);
+   }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _eliminarPromocion.EjecutarAsync(id);
+ return NoContent();
+ }
+
+ [HttpPost("{id}/productos")]
+public async Task<IActionResult> AsignarProductos(int id, [FromBody] List<PromocionProductoDTO> productos)
+{
+ if (productos == null || !productos.Any())
+ return BadRequest(new { mensaje = "Debe enviar al menos un producto." });
+ // Lógica para asociar productos a la promoción
+ // Puedes usar un caso de uso o el repositorio directamente
+ // Ejemplo:
+ // await _actualizarPromocion.AgregarProductosAsync(id, productos);
+ return Ok(new { mensaje = "Productos asignados correctamente." });
+}
+    }
+}

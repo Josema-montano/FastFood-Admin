@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Domain.Entities
+{
+ public class Promocion
+ {
+ public Guid Id { get; set; }
+ public string Nombre { get; set; } = string.Empty;
+ public string Descripcion { get; set; } = string.Empty;
+ public DateTime FechaInicio { get; set; }
+ public DateTime FechaFin { get; set; }
+ public bool Activa { get; set; }
+ public ICollection<PromocionProducto> Productos { get; set; } = new List<PromocionProducto>();
+ }
+}

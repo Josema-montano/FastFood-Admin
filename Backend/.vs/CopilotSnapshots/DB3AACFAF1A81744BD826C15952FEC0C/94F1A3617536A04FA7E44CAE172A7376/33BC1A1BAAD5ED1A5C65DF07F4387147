@@ -1,0 +1,26 @@
+﻿using Aplication.DTOs;
+using Domain.Interfaces;
+using System.Threading.Tasks;
+using System;
+
+namespace Aplication.UseCases.Productos
+{
+ public class ActualizarProducto
+ {
+ private readonly IProductoRepositorio _repo;
+ public ActualizarProducto(IProductoRepositorio repo){ _repo = repo; }
+ public async Task EjecutarAsync(ProductoDTO dto)
+ {
+ if(dto.Id<=0) throw new ArgumentException("Id inválido");
+ var existente = await _repo.ObtenerPorIdAsync(dto.Id) ?? throw new ArgumentException("Producto no encontrado");
+ existente.Nombre = dto.Nombre;
+ existente.Descripcion = dto.Descripcion;
+ existente.Precio = dto.Precio;
+ existente.Categoria = dto.Categoria;
+ existente.Activo = dto.Activo;
+ existente.ImagenUrl = dto.ImagenUrl;
+ existente.StockMinimo = dto.StockMinimo;
+ await _repo.ActualizarAsync(existente);
+ }
+ }
+}

@@ -1,0 +1,237 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Productos;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.Threading.Tasks;
+using System;
+using System.IO;
+using System.Linq;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/productos")]
+ public class ProductosController : ControllerBase
+ {
+ private readonly CrearProducto _crear;
+ private readonly ActualizarProducto _actualizar;
+ private readonly EliminarProducto _eliminar;
+ private readonly ObtenerProductoPorId _obtener;
+ private readonly ListarProductos _listar;
+ private readonly IWebHostEnvironment _env;
+ private readonly DirectoryInfo _uploadsDir;
+ 
+ public ProductosController(CrearProducto crear, ActualizarProducto actualizar, EliminarProducto eliminar, ObtenerProductoPorId obtener, ListarProductos listar, IWebHostEnvironment env, DirectoryInfo uploadsDir)
+ { 
+     _crear = crear; 
+     _actualizar = actualizar; 
+     _eliminar = eliminar; 
+     _obtener = obtener; 
+     _listar = listar; 
+     _env = env; 
+ _uploadsDir = uploadsDir; 
+ }
+
+ private string GetImagesFolder()
+ {
+     var folder = _uploadsDir.FullName;
+     if(!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+     return folder;
+ }
+
+ [HttpGet]
+ public async Task<IActionResult> Listar() => Ok(await _listar.EjecutarAsync());
+
+ [HttpGet("{id:int}")]
+ public async Task<IActionResult> Obtener(int id)
+ {
+     var prod = await _obtener.EjecutarAsync(id);
+     if (prod == null) return NotFound();
+     return Ok(prod);
+ }
+
+ [HttpPost]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> Crear([FromBody] ProductoDTO dto)
+ {
+     if(!ModelState.IsValid) return BadRequest(ModelState);
+     var id = await _crear.EjecutarAsync(dto);
+     return CreatedAtAction(nameof(Obtener), new { id }, new { id });
+ }
+
+ [HttpPut("{id:int}")]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> Actualizar(int id, [FromBody] ProductoDTO dto)
+ {
+     if(id!=dto.Id) return BadRequest("Id mismatch");
+     await _actualizar.EjecutarAsync(dto);
+   return Ok();
+ }
+
+ [HttpDelete("{id:int}")]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> Eliminar(int id)
+ {
+     await _eliminar.EjecutarAsync(id);
+     return NoContent();
+ }
+
+ [HttpPost("{id:int}/imagen")]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> SubirImagen(int id, IFormFile archivo)
+ {
+   if(archivo==null || archivo.Length==0) return BadRequest("Archivo vacío");
+   var producto = await _obtener.EjecutarAsync(id);
+     if(producto==null) return NotFound();
+     
+     var ext = Path.GetExtension(archivo.FileName).ToLowerInvariant();
+   var permitidas = new[]{ ".jpg", ".jpeg", ".png", ".webp" };
+     if(!permitidas.Contains(ext)) return BadRequest("Formato no permitido");
+     
+     var nombre = $"prod_{id}_{Guid.NewGuid():N}{ext}";
+     var folder = GetImagesFolder();
+     var rutaFisica = Path.Combine(folder, nombre);
+     
+     try
+     {
+using(var stream = new FileStream(rutaFisica, FileMode.Create, FileAccess.Write, FileShare.None))
+         {
+          await archivo.CopyToAsync(stream);
+             await stream.FlushAsync();
+         }
+         
+         producto.ImagenUrl = $"/images/{nombre}";
+    await _actualizar.EjecutarAsync(producto);
+         return Ok(new { imagen = producto.ImagenUrl });
+     }
+     catch(Exception ex)
+     { 
+   return StatusCode(500, new { mensaje = ex.Message }); 
+     }
+ }
+
+ [HttpPost("con-imagen-base64")]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> CrearConImagenBase64([FromBody] API.Models.ProductoCrearConImagenBase64Request body)
+ {
+     if(!ModelState.IsValid) return BadRequest(ModelState);
+     
+     try
+     {
+     string? imagenRelativa = null;
+         
+         if(!string.IsNullOrWhiteSpace(body.ImagenBase64))
+    {
+         var data = body.ImagenBase64.Trim();
+      string mime = "image/png";
+         string base64;
+     
+ if(data.StartsWith("data:"))
+        {
+  var headerSep = data.IndexOf(",");
+       if(headerSep<0) return BadRequest("Formato base64 inválido");
+      var header = data.Substring(0, headerSep);
+                 base64 = data.Substring(headerSep+1);
+            var parts = header.Split(';')[0].Split(':');
+ if(parts.Length==2) mime = parts[1];
+        }
+  else 
+         {
+         base64 = data;
+   }
+     
+             byte[] bytes;
+    try { bytes = Convert.FromBase64String(base64); } 
+      catch { return BadRequest("Base64 inválido"); }
+     
+         if(bytes.Length > 5*1024*1024) return BadRequest("Imagen demasiado grande");
+   
+   string ext = mime switch
+             {
+        "image/jpeg" => ".jpg",
+             "image/jpg" => ".jpg",
+   "image/png" => ".png",
+          "image/webp" => ".webp",
+        _ => null
+   };
+
+             if(ext==null) return BadRequest("Formato no permitido");
+        
+             var nombreArchivo = $"prod_{Guid.NewGuid():N}{ext}";
+       var folder = GetImagesFolder();
+       var rutaFisica = Path.Combine(folder, nombreArchivo);
+  
+        await System.IO.File.WriteAllBytesAsync(rutaFisica, bytes);
+ imagenRelativa = $"/images/{nombreArchivo}";
+         }
+         
+         var dto = new ProductoDTO
+   {
+ Nombre = body.Nombre,
+     Descripcion = body.Descripcion,
+             Precio = body.Precio,
+           Categoria = body.Categoria,
+    Activo = body.Activo,
+             StockMinimo = body.StockMinimo,
+             ImagenUrl = imagenRelativa
+         };
+         
+ var id = await _crear.EjecutarAsync(dto);
+         return CreatedAtAction(nameof(Obtener), new { id }, new { id, imagen = imagenRelativa });
+     }
+catch(Exception ex)
+     { 
+         return StatusCode(500, new { mensaje = ex.Message }); 
+     }
+ }
+
+ [HttpPut("con-imagen/{id:int}")]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> ActualizarConImagen(int id, [FromForm] API.Models.ProductoActualizarConImagenRequest form)
+ {
+     if(id!=form.Id) return BadRequest("Id mismatch");
+     if(!ModelState.IsValid) return BadRequest(ModelState);
+     
+     var dto = new ProductoDTO
+     {
+   Id = form.Id,
+         Nombre = form.Nombre,
+    Descripcion = form.Descripcion,
+         Precio = form.Precio,
+     Categoria = form.Categoria,
+       Activo = form.Activo,
+  StockMinimo = form.StockMinimo
+     };
+     
+     if(form.Imagen!=null && form.Imagen.Length>0)
+     {
+         var ext = Path.GetExtension(form.Imagen.FileName).ToLowerInvariant();
+         var permitidas = new[]{ ".jpg", ".jpeg", ".png", ".webp" };
+    if(!permitidas.Contains(ext)) return BadRequest("Formato no permitido");
+       
+       var nombre = $"prod_{id}_{Guid.NewGuid():N}{ext}";
+         var folder = GetImagesFolder();
+var rutaFisica = Path.Combine(folder, nombre);
+  
+         try
+     {
+      using(var stream = new FileStream(rutaFisica, FileMode.Create, FileAccess.Write, FileShare.None))
+           {
+     await form.Imagen.CopyToAsync(stream);
+     await stream.FlushAsync();
+  }
+     dto.ImagenUrl = $"/images/{nombre}";
+         }
+         catch(Exception ex)
+         { 
+  return StatusCode(500, new { mensaje = ex.Message }); 
+         }
+     }
+     
+     await _actualizar.EjecutarAsync(dto);
+     return Ok(new { mensaje="Actualizado", imagen=dto.ImagenUrl });
+ }
+ }
+}

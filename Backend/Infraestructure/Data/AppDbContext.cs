@@ -1,0 +1,56 @@
+using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace Infraestructure.Data
+{
+ public class AppDbContext : DbContext
+ {
+ public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+ public DbSet<Producto> Productos { get; set; }
+ // Restaurante core
+ public DbSet<Usuario> Usuarios { get; set; }
+ public DbSet<Pedido> Pedidos { get; set; }
+ public DbSet<DetallePedido> DetallesPedido { get; set; }
+ public DbSet<Pago> Pagos { get; set; }
+ public DbSet<Reporte> Reportes { get; set; }
+ public DbSet<Inventario> Inventarios { get; set; }
+ public DbSet<PedidoEstadoHistorial> PedidoEstadosHistorial { get; set; }
+
+ protected override void OnModelCreating(ModelBuilder modelBuilder)
+ {
+ base.OnModelCreating(modelBuilder);
+
+ // Producto
+ modelBuilder.Entity<Producto>()
+ .Property(p => p.Precio).HasPrecision(18,2);
+
+ // Pedido/DetallePedido
+ modelBuilder.Entity<Pedido>()
+ .Property(p => p.Total).HasPrecision(18,2);
+
+ modelBuilder.Entity<DetallePedido>()
+ .Property(d => d.PrecioUnitario).HasPrecision(18,2);
+ modelBuilder.Entity<DetallePedido>()
+ .Property(d => d.Subtotal).HasPrecision(18,2);
+
+ modelBuilder.Entity<Pedido>()
+ .HasMany(p => p.Detalles)
+ .WithOne(d => d.Pedido!)
+ .HasForeignKey(d => d.PedidoId);
+
+ modelBuilder.Entity<Pago>()
+ .Property(p => p.Monto).HasPrecision(18,2);
+
+ modelBuilder.Entity<Pedido>()
+ .HasOne(p => p.Pago)
+ .WithOne(pay => pay.Pedido!)
+ .HasForeignKey<Pago>(pay => pay.PedidoId);
+
+ modelBuilder.Entity<PedidoEstadoHistorial>()
+ .HasOne(h => h.Pedido)
+ .WithMany(p => p.HistorialEstados)
+ .HasForeignKey(h => h.PedidoId);
+ }
+ }
+}

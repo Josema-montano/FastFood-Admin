@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Aplication.DTOs
+{
+ public class VentaDTO
+ {
+ public int Id { get; set; }
+ public DateTime Fecha { get; set; }
+ public int? ClienteId { get; set; }
+ public decimal Total { get; set; }
+ public List<DetalleVentaDTO> Detalles { get; set; } = new();
+ }
+
+ public class DetalleVentaDTO
+ {
+ public int ProductoId { get; set; }
+ public int Cantidad { get; set; }
+ public decimal PrecioUnitario { get; set; }
+ }
+}

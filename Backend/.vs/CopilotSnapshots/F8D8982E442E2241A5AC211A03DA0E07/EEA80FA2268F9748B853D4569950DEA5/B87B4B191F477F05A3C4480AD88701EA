@@ -1,0 +1,64 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.POS;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+ [Route("api/pos")]
+ [ApiController]
+ public class POSController : ControllerBase
+ {
+ private readonly RegistrarVenta _registrarVenta;
+ private readonly ListarVentas _listarVentas;
+ private readonly CancelarVenta _cancelarVenta;
+ public POSController(RegistrarVenta registrarVenta, ListarVentas listarVentas, CancelarVenta cancelarVenta)
+ {
+ _registrarVenta = registrarVenta;
+ _listarVentas = listarVentas;
+ _cancelarVenta = cancelarVenta;
+ }
+
+ [HttpPost("venta")]
+ public async Task<IActionResult> RegistrarVenta([FromBody] VentaDTO ventaDTO)
+ {
+ if (!ModelState.IsValid)
+ return BadRequest(ModelState);
+ try
+ {
+ var id = await _registrarVenta.EjecutarAsync(ventaDTO);
+ return Ok(new { mensaje = "Venta registrada", ventaId = id });
+ }
+ catch (Exception ex)
+ {
+ return BadRequest(new { mensaje = ex.Message });
+ }
+ }
+
+ [HttpGet("ventas")]
+ public async Task<IActionResult> ListarVentas()
+ {
+ var ventas = await _listarVentas.EjecutarAsync();
+ return Ok(ventas);
+ }
+
+ [HttpPost("cancelar/{id}")]
+ public async Task<IActionResult> CancelarVenta(int id, [FromBody] CancelarVentaRequest request)
+ {
+ try
+ {
+ await _cancelarVenta.EjecutarAsync(id, request.Motivo, request.ClienteId);
+ return Ok(new { mensaje = "Venta cancelada correctamente." });
+ }
+ catch (Exception ex)
+ {
+ return BadRequest(new { mensaje = ex.Message });
+ }
+ }
+
+ public class CancelarVentaRequest
+ {
+ public string Motivo { get; set; } = string.Empty;
+ public int? ClienteId { get; set; }
+ }
+ }
+}

@@ -1,0 +1,64 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Promociones
+{
+    public class CrearPromocion
+    {
+    private readonly IPromocionRepositorio _promocionRepositorio;
+  private readonly IProductoRepositorio _productoRepositorio;
+
+        public CrearPromocion(IPromocionRepositorio promocionRepositorio, IProductoRepositorio productoRepositorio)
+        {
+          _promocionRepositorio = promocionRepositorio;
+        _productoRepositorio = productoRepositorio;
+        }
+
+  public async Task<Guid> EjecutarAsync(Promocion promocion, IEnumerable<(Guid ProductoId, decimal Descuento)> productos)
+  {
+       // Validaciones de negocio
+   ValidarPromocion(promocion);
+
+       // Asignar ID si no tiene
+            if (promocion.Id == Guid.Empty)
+           promocion.Id = Guid.NewGuid();
+
+            // Validar y agregar productos a la promoción
+foreach (var item in productos)
+   {
+         var producto = await _productoRepositorio.ObtenerPorIdAsync(item.ProductoId);
+                if (producto is null)
+       throw new ArgumentException($"El producto con ID {item.ProductoId} no existe.");
+
+  if (item.Descuento <= 0 || item.Descuento > 100)
+    throw new ArgumentException("El descuento debe estar entre 0 y 100.");
+
+                promocion.Productos.Add(new PromocionProducto
+          {
+          PromocionId = promocion.Id,
+            ProductoId = item.ProductoId,
+          DescuentoPorcentaje = item.Descuento
+                });
+            }
+
+       await _promocionRepositorio.CrearAsync(promocion);
+  return promocion.Id;
+    }
+
+        private void ValidarPromocion(Promocion promocion)
+        {
+      if (promocion is null)
+                throw new ArgumentNullException(nameof(promocion));
+
+            if (string.IsNullOrWhiteSpace(promocion.Nombre))
+       throw new ArgumentException("El nombre de la promoción es obligatorio.");
+
+            if (promocion.FechaInicio >= promocion.FechaFin)
+                throw new ArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
+        }
+    }
+}

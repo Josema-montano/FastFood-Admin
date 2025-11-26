@@ -1,0 +1,40 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Clientes
+{
+    public class ActualizarCliente
+    {
+        private readonly IClienteRepositorio _clienteRepositorio;
+
+        public ActualizarCliente(IClienteRepositorio clienteRepositorio)
+   {
+            _clienteRepositorio = clienteRepositorio;
+        }
+
+        public async Task EjecutarAsync(Cliente cliente)
+        {
+            // Validaciones de negocio
+            if (cliente is null)
+       throw new ArgumentNullException(nameof(cliente));
+
+   if (cliente.Id == Guid.Empty)
+                throw new ArgumentException("El ID del cliente es obligatorio.");
+
+var clienteExistente = await _clienteRepositorio.ObtenerPorIdAsync(cliente.Id);
+     if (clienteExistente is null)
+     throw new ArgumentException("El cliente no existe.");
+
+          if (string.IsNullOrWhiteSpace(cliente.Nombres))
+      throw new ArgumentException("El nombre del cliente es obligatorio.");
+
+          if (string.IsNullOrWhiteSpace(cliente.Apellidos))
+   throw new ArgumentException("El apellido del cliente es obligatorio.");
+
+     // Actualizar cliente
+   await _clienteRepositorio.ActualizarAsync(cliente);
+      }
+    }
+}

@@ -1,0 +1,82 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Proveedores;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+  [ApiController]
+    public class ProveedoresController : ControllerBase
+  {
+        private readonly CrearProveedor _crearProveedor;
+private readonly ActualizarProveedor _actualizarProveedor;
+        private readonly EliminarProveedor _eliminarProveedor;
+        private readonly ObtenerProveedorPorId _obtenerProveedorPorId;
+        private readonly ListarProveedores _listarProveedores;
+
+        public ProveedoresController(
+     CrearProveedor crearProveedor,
+  ActualizarProveedor actualizarProveedor,
+   EliminarProveedor eliminarProveedor,
+       ObtenerProveedorPorId obtenerProveedorPorId,
+  ListarProveedores listarProveedores)
+        {
+      _crearProveedor = crearProveedor;
+            _actualizarProveedor = actualizarProveedor;
+      _eliminarProveedor = eliminarProveedor;
+            _obtenerProveedorPorId = obtenerProveedorPorId;
+     _listarProveedores = listarProveedores;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var proveedores = await _listarProveedores.EjecutarAsync();
+
+      if (!proveedores.Any())
+          return NotFound(new { mensaje = "No hay proveedores registrados." });
+
+ return Ok(proveedores);
+        }
+
+[HttpGet("{id}")]
+   public async Task<IActionResult> GetById(Guid id)
+        {
+var proveedor = await _obtenerProveedorPorId.EjecutarAsync(id);
+            if (proveedor == null)
+  return NotFound(new { mensaje = "Proveedor no encontrado." });
+
+            return Ok(proveedor);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] ProveedorDTO proveedorDTO)
+        {
+            if (!ModelState.IsValid)
+          return BadRequest(ModelState);
+
+            var proveedorCreado = await _crearProveedor.EjecutarAsync(proveedorDTO);
+            return CreatedAtAction(nameof(GetById), new { id = proveedorCreado.Id }, proveedorCreado);
+}
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] ProveedorDTO proveedorDTO)
+        {
+            if (id != proveedorDTO.Id)
+                return BadRequest(new { mensaje = "El ID de la URL no coincide con el ID del proveedor." });
+
+      if (!ModelState.IsValid)
+      return BadRequest(ModelState);
+
+            var proveedorActualizado = await _actualizarProveedor.EjecutarAsync(proveedorDTO);
+      return Ok(proveedorActualizado);
+        }
+
+   [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _eliminarProveedor.EjecutarAsync(id);
+            return NoContent();
+    }
+    }
+}

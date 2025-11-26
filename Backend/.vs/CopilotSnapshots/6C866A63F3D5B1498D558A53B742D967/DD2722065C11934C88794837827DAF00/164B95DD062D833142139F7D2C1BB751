@@ -1,0 +1,38 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace Aplication.DTOs
+{
+ public class UsuarioDTO
+ {
+ public Guid Id { get; set; }
+ [Required, EmailAddress]
+ public string Email { get; set; } = string.Empty;
+ [Required]
+ public string Nombre { get; set; } = string.Empty;
+ [Required]
+ public string Rol { get; set; } = string.Empty; // administrador, cocina, mesero
+ public string Telefono { get; set; } = string.Empty;
+ }
+
+ public class RegistrarUsuarioDTO
+ {
+ [Required]
+ public string Nombre { get; set; } = string.Empty;
+ [Required, EmailAddress]
+ public string Email { get; set; } = string.Empty;
+ [Required]
+ public string Rol { get; set; } = string.Empty;
+ [Required]
+ public string Password { get; set; } = string.Empty;
+ public string Telefono { get; set; } = string.Empty;
+ }
+
+ public class LoginDTO
+ {
+ [Required, EmailAddress]
+ public string Email { get; set; } = string.Empty;
+ [Required]
+ public string Password { get; set; } = string.Empty;
+ }
+}

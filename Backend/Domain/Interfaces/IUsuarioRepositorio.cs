@@ -1,0 +1,16 @@
+using Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Domain.Interfaces
+{
+    public interface IUsuarioRepositorio
+    {
+        Task<Usuario> RegistrarAsync(Usuario usuario);
+        Task<Usuario?> ObtenerPorEmailAsync(string email);
+        Task<Usuario?> ObtenerPorIdAsync(Guid id);
+        Task<IEnumerable<Usuario>> ListarAsync();
+        Task ActualizarAsync(Usuario usuario);
+    }
+}

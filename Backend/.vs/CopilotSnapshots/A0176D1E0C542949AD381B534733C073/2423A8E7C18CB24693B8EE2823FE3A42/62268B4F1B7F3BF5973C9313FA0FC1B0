@@ -1,0 +1,25 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Devoluciones
+{
+    public class ObtenerDevolucionPorId
+    {
+   private readonly IDevolucionRepositorio _devolucionRepositorio;
+
+        public ObtenerDevolucionPorId(IDevolucionRepositorio devolucionRepositorio)
+ {
+_devolucionRepositorio = devolucionRepositorio;
+        }
+
+        public async Task<Devolucion?> EjecutarAsync(Guid devolucionId)
+  {
+       if (devolucionId == Guid.Empty)
+         throw new ArgumentException("El ID de la devolución es obligatorio.");
+
+return await _devolucionRepositorio.ObtenerPorIdAsync(devolucionId);
+        }
+    }
+}

@@ -1,0 +1,35 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Infraestructure.Repositorios
+{
+ public class PedidoRepositorio : IPedidoRepositorio
+ {
+ private readonly AppDbContext _context;
+ public PedidoRepositorio(AppDbContext context){ _context = context; }
+
+ public async Task<Pedido> CrearAsync(Pedido pedido)
+ {
+ _context.Pedidos.Add(pedido);
+ await _context.SaveChangesAsync();
+ return pedido;
+ }
+
+ public async Task<Pedido?> ObtenerPorIdAsync(Guid id)
+ => await _context.Pedidos.Include(p=>p.Detalles).ThenInclude(d=>d.Producto).Include(p=>p.Pago).Include(p=>p.HistorialEstados).FirstOrDefaultAsync(p=>p.Id==id);
+
+ public async Task<IEnumerable<Pedido>> ListarAsync()
+ => await _context.Pedidos.Include(p=>p.Detalles).ThenInclude(d=>d.Producto).Include(p=>p.Pago).Include(p=>p.HistorialEstados).AsNoTracking().ToListAsync();
+
+ public async Task ActualizarAsync(Pedido pedido)
+ {
+ // La entidad ya está siendo rastreada; solo guardar cambios.
+ await _context.SaveChangesAsync();
+ }
+ }
+}

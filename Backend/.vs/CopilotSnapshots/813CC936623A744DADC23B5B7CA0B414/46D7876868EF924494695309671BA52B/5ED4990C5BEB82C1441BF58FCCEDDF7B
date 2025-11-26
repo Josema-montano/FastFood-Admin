@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Domain.Entities
+{
+ public class Pedido
+ {
+ public Guid Id { get; set; }
+ public DateTime Fecha { get; set; }
+ public EstadoPedido Estado { get; set; } = EstadoPedido.CREADO;
+ public Guid? UsuarioId { get; set; }
+ public Usuario? Usuario { get; set; }
+ public string Mesa { get; set; } = string.Empty; // nueva propiedad para gestión de cocina
+ public string? Notas { get; set; }
+ public decimal Total { get; set; }
+ public ICollection<DetallePedido> Detalles { get; set; } = new List<DetallePedido>();
+ public Pago? Pago { get; set; }
+ public ICollection<PedidoEstadoHistorial> HistorialEstados { get; set; } = new List<PedidoEstadoHistorial>();
+ }
+}

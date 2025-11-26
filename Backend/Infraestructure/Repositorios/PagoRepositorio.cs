@@ -1,0 +1,58 @@
+using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Infraestructure.Repositorios
+{
+    public class PagoRepositorio : IPagoRepositorio
+    {
+        private readonly AppDbContext _context;
+        public PagoRepositorio(AppDbContext context){ _context = context; }
+
+        public async Task<Pago> RegistrarAsync(Pago pago)
+        {
+  _context.Pagos.Add(pago);
+        await _context.SaveChangesAsync();
+            return pago;
+ }
+
+        public async Task<Pago?> ObtenerPorPedidoIdAsync(Guid pedidoId)
+   => await _context.Pagos.FirstOrDefaultAsync(p=>p.PedidoId==pedidoId);
+
+        public async Task<IEnumerable<Pago>> ListarAsync()
+   => await _context.Pagos
+.Include(p => p.Pedido)
+          .OrderByDescending(p => p.Fecha)
+         .AsNoTracking()
+       .ToListAsync();
+
+        public async Task<IEnumerable<Pago>> ListarPorEstadoAsync(EstadoPago estado)
+          => await _context.Pagos
+   .Include(p => p.Pedido)
+         .Where(p => p.Estado == estado)
+       .OrderByDescending(p => p.Fecha)
+     .AsNoTracking()
+         .ToListAsync();
+
+   public async Task<IEnumerable<Pago>> ListarPorFechasAsync(DateTime fechaInicio, DateTime fechaFin)
+     => await _context.Pagos
+       .Include(p => p.Pedido)
+     .Where(p => p.Fecha >= fechaInicio && p.Fecha <= fechaFin)
+    .OrderByDescending(p => p.Fecha)
+  .AsNoTracking()
+         .ToListAsync();
+
+        public async Task<IEnumerable<Pago>> ListarPagosRealizadosAsync()
+    => await _context.Pagos
+  .Include(p => p.Pedido)
+    .Where(p => p.Estado == EstadoPago.APROBADO)
+ .OrderByDescending(p => p.Fecha)
+      .AsNoTracking()
+          .ToListAsync();
+    }
+}

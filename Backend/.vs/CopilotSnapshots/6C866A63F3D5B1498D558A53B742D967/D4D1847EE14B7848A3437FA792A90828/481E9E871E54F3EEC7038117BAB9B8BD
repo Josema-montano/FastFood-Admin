@@ -1,0 +1,28 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace Aplication.DTOs
+{
+    public class PagoDTO
+    {
+  [Required]
+        public Guid PedidoId { get; set; }
+        [Range(0,double.MaxValue)]
+ public decimal Monto { get; set; }
+  [Required]
+      public string Metodo { get; set; } = "Efectivo";
+    }
+
+    public class PagoDetalleDTO
+    {
+    public Guid Id { get; set; }
+     public Guid PedidoId { get; set; }
+  public decimal Monto { get; set; }
+     public string Metodo { get; set; } = string.Empty;
+      public string Estado { get; set; } = string.Empty;
+public DateTime Fecha { get; set; }
+        // Información del pedido relacionado
+  public int? NumeroMesa { get; set; }
+public decimal? TotalPedido { get; set; }
+    }
+}

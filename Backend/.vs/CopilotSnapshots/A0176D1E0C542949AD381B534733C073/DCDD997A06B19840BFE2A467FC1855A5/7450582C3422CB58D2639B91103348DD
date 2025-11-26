@@ -1,0 +1,25 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Proveedores
+{
+    public class ObtenerProveedorPorId
+    {
+        private readonly IProveedorRepositorio _proveedorRepositorio;
+
+        public ObtenerProveedorPorId(IProveedorRepositorio proveedorRepositorio)
+    {
+    _proveedorRepositorio = proveedorRepositorio;
+        }
+
+        public async Task<Proveedor?> EjecutarAsync(Guid proveedorId)
+  {
+    if (proveedorId == Guid.Empty)
+     throw new ArgumentException("El ID del proveedor es obligatorio.");
+
+     return await _proveedorRepositorio.ObtenerPorIdAsync(proveedorId);
+   }
+    }
+}

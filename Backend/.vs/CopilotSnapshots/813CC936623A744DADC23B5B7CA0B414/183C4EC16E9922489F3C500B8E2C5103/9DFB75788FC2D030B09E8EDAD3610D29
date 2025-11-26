@@ -1,0 +1,48 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Infraestructure.Repositorios
+{
+    public class PedidoRepositorio : IPedidoRepositorio
+    {
+        private readonly AppDbContext _context;
+        public PedidoRepositorio(AppDbContext context) { _context = context; }
+
+        public async Task<Pedido> CrearAsync(Pedido pedido)
+        {
+            _context.Pedidos.Add(pedido);
+            await _context.SaveChangesAsync();
+            return pedido;
+        }
+
+        public async Task<Pedido?> ObtenerPorIdAsync(Guid id)
+            => await _context.Pedidos.Include(p => p.Detalles).ThenInclude(d => d.Producto).Include(p => p.Pago).Include(p => p.HistorialEstados).FirstOrDefaultAsync(p => p.Id == id);
+
+        public async Task<IEnumerable<Pedido>> ListarAsync()
+            => await _context.Pedidos.Include(p => p.Detalles).ThenInclude(d => d.Producto).Include(p => p.Pago).Include(p => p.HistorialEstados).AsNoTracking().ToListAsync();
+
+        public async Task ActualizarAsync(Pedido pedido)
+        {
+            // Adjuntar si no está siendo rastreado
+            var tracked = _context.ChangeTracker.Entries<Pedido>().FirstOrDefault(e => e.Entity.Id == pedido.Id);
+            if (tracked == null)
+            {
+                _context.Pedidos.Attach(pedido);
+            }
+            // Marcar Estado y HistorialEstados como modificados si cambió estado
+            _context.Entry(pedido).Property(p => p.Estado).IsModified = true;
+            // HistorialEstados se agrega como nueva entidad
+            foreach (var h in pedido.HistorialEstados.Where(h => _context.Entry(h).State == EntityState.Detached))
+            {
+                _context.PedidoEstadosHistorial.Add(h);
+            }
+            await _context.SaveChangesAsync();
+        }
+    }
+}

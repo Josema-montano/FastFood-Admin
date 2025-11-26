@@ -1,0 +1,49 @@
+﻿using Aplication.DTOs;
+using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Pedidos
+{
+ public class CrearPedido
+ {
+ private readonly IPedidoRepositorio _pedidoRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ public CrearPedido(IPedidoRepositorio pedidoRepo, IProductoRepositorio productoRepo)
+ { _pedidoRepo = pedidoRepo; _productoRepo = productoRepo; }
+
+ public async Task<Guid> EjecutarAsync(PedidoDTO dto)
+ {
+ var pedido = new Pedido
+ {
+ Id = Guid.NewGuid(),
+ Fecha = DateTime.UtcNow,
+ Estado = EstadoPedido.CREADO,
+ UsuarioId = string.IsNullOrEmpty(dto.UsuarioId) ? null : Guid.Parse(dto.UsuarioId)
+ };
+ decimal total =0m;
+ foreach (var det in dto.Detalles)
+ {
+ var prod = await _productoRepo.ObtenerPorIdAsync(det.ProductoId) ?? throw new ArgumentException("Producto no encontrado");
+ if (prod.Stock < det.Cantidad) throw new InvalidOperationException($"Stock insuficiente para {prod.Nombre}");
+ prod.Stock -= det.Cantidad;
+ await _productoRepo.ActualizarAsync(prod);
+ var subtotal = det.Cantidad * prod.PrecioVenta;
+ pedido.Detalles.Add(new DetallePedido
+ {
+ Id = Guid.NewGuid(),
+ ProductoId = det.ProductoId,
+ Cantidad = det.Cantidad,
+ PrecioUnitario = prod.PrecioVenta,
+ Subtotal = subtotal
+ });
+ total += subtotal;
+ }
+ pedido.Total = total;
+ await _pedidoRepo.CrearAsync(pedido);
+ return pedido.Id;
+ }
+ }
+}

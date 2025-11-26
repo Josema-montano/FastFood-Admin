@@ -1,0 +1,35 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
+
+namespace Infraestructure.Repositorios
+{
+ public class InventarioRepositorio : IInventarioRepositorio
+ {
+ private readonly AppDbContext _context;
+ public InventarioRepositorio(AppDbContext context){ _context = context; }
+
+ public async Task<Inventario?> ObtenerPorProductoIdAsync(int productoId)
+ => await _context.Inventarios.FirstOrDefaultAsync(i=>i.ProductoId==productoId);
+
+ public async Task<Inventario?> ObtenerPorIdAsync(Guid id)
+ => await _context.Inventarios.FirstOrDefaultAsync(i=>i.Id==id);
+
+ public async Task<Inventario> CrearAsync(Inventario inv)
+ {
+ _context.Inventarios.Add(inv);
+ await _context.SaveChangesAsync();
+ return inv;
+ }
+ public async Task ActualizarAsync(Inventario inv)
+ {
+ _context.Inventarios.Update(inv);
+ await _context.SaveChangesAsync();
+ }
+ public async Task<IEnumerable<Inventario>> ListarAsync() => await _context.Inventarios.AsNoTracking().ToListAsync();
+ }
+}

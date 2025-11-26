@@ -1,0 +1,95 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Productos;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductosController : ControllerBase
+    {
+        private readonly CrearProducto _crearProducto;
+     private readonly ActualizarProducto _actualizarProducto;
+        private readonly EliminarProducto _eliminarProducto;
+        private readonly ObtenerProductoPorId _obtenerProductoPorId;
+      private readonly ObtenerProductoPorCodigo _obtenerProductoPorCodigo;
+  private readonly ListarProductos _listarProductos;
+
+        public ProductosController(
+            CrearProducto crearProducto,
+            ActualizarProducto actualizarProducto,
+            EliminarProducto eliminarProducto,
+ ObtenerProductoPorId obtenerProductoPorId,
+            ObtenerProductoPorCodigo obtenerProductoPorCodigo,
+            ListarProductos listarProductos)
+        {
+  _crearProducto = crearProducto;
+  _actualizarProducto = actualizarProducto;
+  _eliminarProducto = eliminarProducto;
+            _obtenerProductoPorId = obtenerProductoPorId;
+            _obtenerProductoPorCodigo = obtenerProductoPorCodigo;
+            _listarProductos = listarProductos;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+  var productos = await _listarProductos.EjecutarAsync();
+
+      if (!productos.Any())
+ return NotFound(new { mensaje = "No hay productos registrados." });
+
+  return Ok(productos);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+    var producto = await _obtenerProductoPorId.EjecutarAsync(id);
+            if (producto == null)
+           return NotFound(new { mensaje = "Producto no encontrado." });
+
+     return Ok(producto);
+        }
+
+        [HttpGet("codigo/{codigo}")]
+        public async Task<IActionResult> GetByCodigo(string codigo)
+        {
+     var producto = await _obtenerProductoPorCodigo.EjecutarAsync(codigo);
+            if (producto == null)
+        return NotFound(new { mensaje = "Producto no encontrado." });
+
+            return Ok(producto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] ProductoDTO productoDTO)
+        {
+            if (!ModelState.IsValid)
+      return BadRequest(ModelState);
+
+            var productoCreado = await _crearProducto.EjecutarAsync(productoDTO);
+     return CreatedAtAction(nameof(GetById), new { id = productoCreado.Id }, productoCreado);
+      }
+
+        [HttpPut("{id}")]
+     public async Task<IActionResult> Update(Guid id, [FromBody] ProductoDTO productoDTO)
+        {
+            if (id != productoDTO.Id)
+     return BadRequest(new { mensaje = "El ID de la URL no coincide con el ID del producto." });
+
+  if (!ModelState.IsValid)
+       return BadRequest(ModelState);
+
+         var productoActualizado = await _actualizarProducto.EjecutarAsync(productoDTO);
+      return Ok(productoActualizado);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _eliminarProducto.EjecutarAsync(id);
+      return NoContent();
+        }
+    }
+}

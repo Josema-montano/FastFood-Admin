@@ -1,0 +1,93 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Clientes;
+using AutoMapper;
+using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ClientesController : ControllerBase
+    {
+        private readonly CrearCliente _crearCliente;
+        private readonly ActualizarCliente _actualizarCliente;
+        private readonly EliminarCliente _eliminarCliente;
+        private readonly ObtenerClientePorId _obtenerClientePorId;
+        private readonly ListarClientes _listarClientes;
+        private readonly IMapper _mapper;
+
+        public ClientesController(
+            CrearCliente crearCliente,
+            ActualizarCliente actualizarCliente,
+            EliminarCliente eliminarCliente,
+            ObtenerClientePorId obtenerClientePorId,
+            ListarClientes listarClientes,
+            IMapper mapper)
+        {
+            _crearCliente = crearCliente;
+            _actualizarCliente = actualizarCliente;
+            _eliminarCliente = eliminarCliente;
+            _obtenerClientePorId = obtenerClientePorId;
+            _listarClientes = listarClientes;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var clientes = await _listarClientes.EjecutarAsync();
+
+            if (!clientes.Any())
+                return NotFound(new { mensaje = "No hay clientes registrados." });
+
+            return Ok(clientes);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var cliente = await _obtenerClientePorId.EjecutarAsync(id);
+            if (cliente == null)
+                return NotFound(new { mensaje = "Cliente no encontrado." });
+
+            return Ok(cliente);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] ClienteDTO clienteDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var cliente = _mapper.Map<Cliente>(clienteDTO);
+            await _crearCliente.EjecutarAsync(cliente);
+
+            var clienteCreado = await _obtenerClientePorId.EjecutarAsync(cliente.Id);
+            return CreatedAtAction(nameof(GetById), new { id = clienteCreado.Id }, clienteCreado);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] ClienteDTO clienteDTO)
+        {
+            if (id != clienteDTO.Id)
+                return BadRequest(new { mensaje = "El ID de la URL no coincide con el ID del cliente." });
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var cliente = _mapper.Map<Cliente>(clienteDTO);
+            await _actualizarCliente.EjecutarAsync(cliente);
+
+            var clienteActualizado = await _obtenerClientePorId.EjecutarAsync(id);
+            return Ok(clienteActualizado);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _eliminarCliente.EjecutarAsync(id);
+            return NoContent();
+        }
+    }
+}

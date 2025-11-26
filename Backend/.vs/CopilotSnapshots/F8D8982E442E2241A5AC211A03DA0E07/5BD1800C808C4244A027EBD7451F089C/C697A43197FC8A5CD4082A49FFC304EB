@@ -1,0 +1,42 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.POS;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+ [Route("api/pos")]
+ [ApiController]
+ public class POSController : ControllerBase
+ {
+ private readonly RegistrarVenta _registrarVenta;
+ private readonly ListarVentas _listarVentas;
+ public POSController(RegistrarVenta registrarVenta, ListarVentas listarVentas)
+ {
+ _registrarVenta = registrarVenta;
+ _listarVentas = listarVentas;
+ }
+
+ [HttpPost("venta")]
+ public async Task<IActionResult> RegistrarVenta([FromBody] VentaDTO ventaDTO)
+ {
+ if (!ModelState.IsValid)
+ return BadRequest(ModelState);
+ try
+ {
+ var id = await _registrarVenta.EjecutarAsync(ventaDTO);
+ return Ok(new { mensaje = "Venta registrada", ventaId = id });
+ }
+ catch (Exception ex)
+ {
+ return BadRequest(new { mensaje = ex.Message });
+ }
+ }
+
+ [HttpGet("ventas")]
+ public async Task<IActionResult> ListarVentas()
+ {
+ var ventas = await _listarVentas.EjecutarAsync();
+ return Ok(ventas);
+ }
+ }
+}

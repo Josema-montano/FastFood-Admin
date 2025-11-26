@@ -1,0 +1,54 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Productos;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/productos")]
+ public class ProductosController : ControllerBase
+ {
+ private readonly CrearProducto _crear;
+ private readonly ActualizarProducto _actualizar;
+ private readonly EliminarProducto _eliminar;
+ private readonly ObtenerProductoPorId _obtener;
+ private readonly ListarProductos _listar;
+ public ProductosController(CrearProducto crear, ActualizarProducto actualizar, EliminarProducto eliminar, ObtenerProductoPorId obtener, ListarProductos listar)
+ { _crear = crear; _actualizar = actualizar; _eliminar = eliminar; _obtener = obtener; _listar = listar; }
+
+ [HttpGet]
+ public async Task<IActionResult> Listar() => Ok(await _listar.EjecutarAsync());
+
+ [HttpGet("{id:int}")]
+ public async Task<IActionResult> Obtener(int id)
+ {
+ var prod = await _obtener.EjecutarAsync(id);
+ if (prod == null) return NotFound();
+ return Ok(prod);
+ }
+
+ [HttpPost]
+ public async Task<IActionResult> Crear([FromBody] ProductoDTO dto)
+ {
+ if(!ModelState.IsValid) return BadRequest(ModelState);
+ var id = await _crear.EjecutarAsync(dto);
+ return CreatedAtAction(nameof(Obtener), new { id }, new { id });
+ }
+
+ [HttpPut("{id:int}")]
+ public async Task<IActionResult> Actualizar(int id, [FromBody] ProductoDTO dto)
+ {
+ if(id!=dto.Id) return BadRequest("Id mismatch");
+ await _actualizar.EjecutarAsync(dto);
+ return Ok();
+ }
+
+ [HttpDelete("{id:int}")]
+ public async Task<IActionResult> Eliminar(int id)
+ {
+ await _eliminar.EjecutarAsync(id);
+ return NoContent();
+ }
+ }
+}

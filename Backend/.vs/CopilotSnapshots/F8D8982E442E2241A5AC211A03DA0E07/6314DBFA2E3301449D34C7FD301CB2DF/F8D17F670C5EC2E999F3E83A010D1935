@@ -1,0 +1,167 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Productos;
+using AutoMapper;
+using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductosController : ControllerBase
+    {
+        private readonly CrearProducto _crearProducto;
+        private readonly ActualizarProducto _actualizarProducto;
+        private readonly EliminarProducto _eliminarProducto;
+        private readonly ObtenerProductoPorId _obtenerProductoPorId;
+        private readonly ObtenerProductoPorCodigo _obtenerProductoPorCodigo;
+        private readonly ListarProductos _listarProductos;
+        private readonly IMapper _mapper;
+
+        public ProductosController(
+            CrearProducto crearProducto,
+            ActualizarProducto actualizarProducto,
+            EliminarProducto eliminarProducto,
+            ObtenerProductoPorId obtenerProductoPorId,
+            ObtenerProductoPorCodigo obtenerProductoPorCodigo,
+            ListarProductos listarProductos,
+            IMapper mapper)
+        {
+            _crearProducto = crearProducto;
+            _actualizarProducto = actualizarProducto;
+            _eliminarProducto = eliminarProducto;
+            _obtenerProductoPorId = obtenerProductoPorId;
+            _obtenerProductoPorCodigo = obtenerProductoPorCodigo;
+            _listarProductos = listarProductos;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var productos = await _listarProductos.EjecutarAsync();
+
+            if (!productos.Any())
+                return NotFound(new { mensaje = "No hay productos registrados." });
+
+            return Ok(productos);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var producto = await _obtenerProductoPorId.EjecutarAsync(id);
+            if (producto == null)
+                return NotFound(new { mensaje = "Producto no encontrado." });
+
+            return Ok(producto);
+        }
+
+        [HttpGet("codigo/{codigo}")]
+        public async Task<IActionResult> GetByCodigo(string codigo)
+        {
+            var producto = await _obtenerProductoPorCodigo.EjecutarAsync(codigo);
+            if (producto == null)
+                return NotFound(new { mensaje = "Producto no encontrado." });
+
+            return Ok(producto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] ProductoDTO productoDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var producto = _mapper.Map<Producto>(productoDTO);
+            await _crearProducto.EjecutarAsync(producto);
+
+            var productoCreado = await _obtenerProductoPorId.EjecutarAsync(producto.Id);
+            return CreatedAtAction(nameof(GetById), new { id = productoCreado.Id }, productoCreado);
+        }
+
+        [HttpPost("con-imagen")]
+        public async Task<IActionResult> CreateWithImage([FromForm] ProductoDTO productoDTO, IFormFile? imagen)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            string? imagenUrl = null;
+            if (imagen != null && imagen.Length > 0)
+            {
+                var extension = Path.GetExtension(imagen.FileName);
+                var nombreArchivo = $"producto_{Guid.NewGuid()}{extension}";
+                var rutaCarpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+                if (!Directory.Exists(rutaCarpeta))
+                    Directory.CreateDirectory(rutaCarpeta);
+                var rutaArchivo = Path.Combine(rutaCarpeta, nombreArchivo);
+                using (var stream = new FileStream(rutaArchivo, FileMode.Create))
+                {
+                    await imagen.CopyToAsync(stream);
+                }
+                imagenUrl = $"/images/{nombreArchivo}";
+            }
+
+            var producto = _mapper.Map<Producto>(productoDTO);
+            producto.ImagenUrl = imagenUrl;
+            await _crearProducto.EjecutarAsync(producto);
+
+            var productoCreado = await _obtenerProductoPorId.EjecutarAsync(producto.Id);
+            return CreatedAtAction(nameof(GetById), new { id = productoCreado.Id }, productoCreado);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] ProductoDTO productoDTO)
+        {
+            if (id != productoDTO.Id)
+                return BadRequest(new { mensaje = "El ID de la URL no coincide con el ID del producto." });
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                var producto = _mapper.Map<Producto>(productoDTO);
+                await _actualizarProducto.EjecutarAsync(producto);
+
+                var productoActualizado = await _obtenerProductoPorId.EjecutarAsync(id);
+                return Ok(productoActualizado);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = ex.Message, detalle = ex.StackTrace });
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _eliminarProducto.EjecutarAsync(id);
+            return NoContent();
+        }
+
+        [HttpPost("upload-image")]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("No se envió ningún archivo.");
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(uploadsFolder, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            var url = $"{Request.Scheme}://{Request.Host}/images/{fileName}";
+            return Ok(new { url });
+        }
+    }
+}

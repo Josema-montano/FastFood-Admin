@@ -1,0 +1,15 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=localhost;Initial Catalog=ValdisBurguer;Integrated Security=True;Trust Server Certificate=True"
+  },
+  "Jwt": {
+    "Key": "ClaveSuperSecretaMinima123456789"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

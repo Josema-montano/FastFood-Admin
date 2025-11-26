@@ -1,0 +1,59 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Aplication.DTOs;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Productos
+{
+    public class ListarProductos
+    {
+        private readonly IProductoRepositorio _productoRepositorio;
+        private readonly IPromocionRepositorio _promocionRepositorio;
+
+        public ListarProductos(IProductoRepositorio productoRepositorio, IPromocionRepositorio promocionRepositorio)
+        {
+            _productoRepositorio = productoRepositorio;
+            _promocionRepositorio = promocionRepositorio;
+        }
+
+        public async Task<IEnumerable<ProductoDTO>> EjecutarAsync(bool incluirProveedor = false)
+        {
+            var productos = incluirProveedor
+                ? await _productoRepositorio.ListarConProveedorAsync()
+                : await _productoRepositorio.ListarAsync();
+
+            var promocionesActivas = await _promocionRepositorio.ListarActivasAsync(System.DateTime.UtcNow);
+            var productosDTO = new List<ProductoDTO>();
+
+            foreach (var producto in productos)
+            {
+                var dto = new ProductoDTO
+                {
+                    Id = producto.Id,
+                    Codigo = producto.Codigo,
+                    Nombre = producto.Nombre,
+                    Descripcion = producto.Descripcion,
+                    PrecioCompra = producto.PrecioCompra,
+                    PrecioVenta = producto.PrecioVenta,
+                    Stock = producto.Stock,
+                    StockMinimo = producto.StockMinimo,
+                    ImagenUrl = producto.ImagenUrl,
+                    ProveedorId = producto.ProveedorId,
+                    Proveedor = null // Puedes mapear el proveedor si lo necesitas
+                };
+                // Buscar promoción activa para el producto
+                var promo = promocionesActivas
+                    .SelectMany(p => p.Productos)
+                    .FirstOrDefault(pp => pp.ProductoId == producto.Id);
+                if (promo != null)
+                {
+                    dto.PrecioPromocional = dto.PrecioVenta * (1 - promo.DescuentoPorcentaje / 100);
+                }
+                productosDTO.Add(dto);
+            }
+            return productosDTO;
+        }
+    }
+}

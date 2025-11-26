@@ -1,0 +1,12 @@
+# Excluir carpetas de archivos subidos por usuarios para evitar hot-reload
+**/uploads/**
+**/wwwroot/images/**
+**/*.jpg
+**/*.jpeg
+**/*.png
+**/*.webp
+**/*.gif
+
+# Excluir archivos temporales
+**/*.tmp
+**/*.temp

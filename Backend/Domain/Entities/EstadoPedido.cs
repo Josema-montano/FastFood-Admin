@@ -1,0 +1,13 @@
+namespace Domain.Entities
+{
+ public enum EstadoPedido
+ {
+ CREADO =0,
+ PENDIENTE =0, // alias para CREADO
+ EN_PREPARACION =1,
+ LISTO =2,
+ ENTREGADO =3,
+ FINALIZADO =4,
+ CANCELADO =5
+ }
+}

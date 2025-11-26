@@ -1,0 +1,81 @@
+﻿using Aplication.DTOs;
+using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Aplication.UseCases.POS
+{
+ public class RegistrarVenta
+ {
+ private readonly IVentaRepositorio _ventaRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ private readonly IMovimientoInventarioRepositorio _movimientoRepo;
+ public RegistrarVenta(IVentaRepositorio ventaRepo, IProductoRepositorio productoRepo, IMovimientoInventarioRepositorio movimientoRepo)
+ {
+ _ventaRepo = ventaRepo;
+ _productoRepo = productoRepo;
+ _movimientoRepo = movimientoRepo;
+ }
+
+ public async Task<(int ventaId, string recibo)> EjecutarAsync(VentaDTO ventaDTO)
+ {
+ var venta = new Venta
+ {
+ Fecha = DateTime.UtcNow,
+ ClienteId = ventaDTO.ClienteId,
+ TipoPago = ventaDTO.TipoPago,
+ Descuento = ventaDTO.Descuento,
+ Notas = ventaDTO.Notas,
+ Detalles = new List<DetalleVenta>()
+ };
+ decimal total =0;
+ var reciboBuilder = new StringBuilder();
+ reciboBuilder.AppendLine($"RECIBO DE VENTA");
+ reciboBuilder.AppendLine($"Fecha: {venta.Fecha:dd/MM/yyyy HH:mm}");
+ reciboBuilder.AppendLine($"Cliente: {(ventaDTO.ClienteId.HasValue ? ventaDTO.ClienteId.Value.ToString() : "Sin cliente")}");
+ reciboBuilder.AppendLine($"Tipo de pago: {venta.TipoPago}");
+ reciboBuilder.AppendLine($"Notas: {venta.Notas}");
+ reciboBuilder.AppendLine($"----------------------------------------");
+ reciboBuilder.AppendLine($"Productos:");
+ foreach (var det in ventaDTO.Detalles)
+ {
+ var producto = await _productoRepo.ObtenerPorIdAsync(det.ProductoId) ?? throw new ArgumentException($"Producto {det.ProductoId} no encontrado");
+ if (producto.Stock < det.Cantidad) throw new InvalidOperationException($"Stock insuficiente para producto {producto.Nombre}");
+ producto.Stock -= det.Cantidad;
+ await _productoRepo.ActualizarAsync(producto);
+ var subtotal = det.Cantidad * det.PrecioUnitario;
+ venta.Detalles.Add(new DetalleVenta
+ {
+ ProductoId = det.ProductoId,
+ Cantidad = det.Cantidad,
+ PrecioUnitario = det.PrecioUnitario,
+ Subtotal = subtotal
+ });
+ total += subtotal;
+ // Registrar movimiento inventario
+ await _movimientoRepo.RegistrarAsync(new MovimientoInventario
+ {
+ ProductoId = det.ProductoId,
+ Fecha = DateTime.UtcNow,
+ Cantidad = det.Cantidad,
+ Tipo = TipoMovimientoInventario.Egreso,
+ Motivo = "Venta POS",
+ ReferenciaId = null
+ });
+ reciboBuilder.AppendLine($"{producto.Nombre} x{det.Cantidad} - S/ {subtotal:N2}");
+ }
+ reciboBuilder.AppendLine($"----------------------------------------");
+ reciboBuilder.AppendLine($"Total: S/ {total:N2}");
+ reciboBuilder.AppendLine($"Descuento: S/ {venta.Descuento:N2}");
+ var totalPagar = total - venta.Descuento;
+ reciboBuilder.AppendLine($"Total a pagar: S/ {totalPagar:N2}");
+ venta.Total = totalPagar;
+ venta.Recibo = reciboBuilder.ToString();
+ await _ventaRepo.RegistrarAsync(venta);
+ return (venta.Id, venta.Recibo ?? "");
+ }
+ }
+}

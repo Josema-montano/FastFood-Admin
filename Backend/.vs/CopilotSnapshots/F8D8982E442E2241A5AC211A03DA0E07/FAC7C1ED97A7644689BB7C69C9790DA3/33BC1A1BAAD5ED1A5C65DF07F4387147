@@ -1,0 +1,58 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Productos
+{
+    public class ActualizarProducto
+    {
+        private readonly IProductoRepositorio _productoRepositorio;
+
+        public ActualizarProducto(IProductoRepositorio productoRepositorio)
+        {
+            _productoRepositorio = productoRepositorio;
+        }
+
+        public async Task EjecutarAsync(Producto producto)
+        {
+            // Validaciones de negocio
+            ValidarProducto(producto);
+
+         var productoExistente = await _productoRepositorio.ObtenerPorIdAsync(producto.Id);
+          if (productoExistente is null)
+   throw new InvalidOperationException("El producto no existe.");
+
+            // Verificar que el código no esté en uso por otro producto
+ var productoConMismoCodigo = await _productoRepositorio.ObtenerPorCodigoAsync(producto.Codigo);
+            if (productoConMismoCodigo != null && productoConMismoCodigo.Id != producto.Id)
+      throw new InvalidOperationException("Ya existe otro producto con el mismo código.");
+
+        await _productoRepositorio.ActualizarAsync(producto);
+        }
+
+        private void ValidarProducto(Producto producto)
+        {
+if (producto is null)
+     throw new ArgumentNullException(nameof(producto));
+
+   if (producto.Id == 0)
+       throw new ArgumentException("El ID del producto es obligatorio.");
+
+          if (string.IsNullOrWhiteSpace(producto.Codigo))
+      throw new ArgumentException("El código es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(producto.Nombre))
+throw new ArgumentException("El nombre es obligatorio.");
+
+if (producto.PrecioCompra < 0)
+  throw new ArgumentException("El precio de compra no puede ser negativo.");
+
+     if (producto.PrecioVenta < 0)
+   throw new ArgumentException("El precio de venta no puede ser negativo.");
+
+     if (producto.Stock < 0)
+  throw new ArgumentException("El stock no puede ser negativo.");
+ }
+    }
+}

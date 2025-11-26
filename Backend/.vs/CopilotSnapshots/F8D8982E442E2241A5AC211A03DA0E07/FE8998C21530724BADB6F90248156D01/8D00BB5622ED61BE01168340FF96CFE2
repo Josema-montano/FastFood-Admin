@@ -1,0 +1,44 @@
+﻿using Domain.Interfaces;
+using Domain.Entities;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+
+namespace Aplication.UseCases.POS
+{
+ public class CancelarVenta
+ {
+ private readonly IVentaRepositorio _ventaRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ private readonly IMovimientoInventarioRepositorio _movimientoRepo;
+ public CancelarVenta(IVentaRepositorio ventaRepo, IProductoRepositorio productoRepo, IMovimientoInventarioRepositorio movimientoRepo)
+ {
+ _ventaRepo = ventaRepo;
+ _productoRepo = productoRepo;
+ _movimientoRepo = movimientoRepo;
+ }
+
+ public async Task EjecutarAsync(int ventaId)
+ {
+ var venta = await _ventaRepo.ObtenerPorIdAsync(ventaId) ?? throw new KeyNotFoundException("Venta no encontrada");
+ if (venta.Cancelada) throw new InvalidOperationException("La venta ya está cancelada");
+ // Devolver stock y registrar movimiento
+ foreach (var det in venta.Detalles)
+ {
+ var producto = await _productoRepo.ObtenerPorIdAsync(det.ProductoId) ?? throw new ArgumentException($"Producto {det.ProductoId} no encontrado");
+ producto.Stock += det.Cantidad;
+ await _productoRepo.ActualizarAsync(producto);
+ await _movimientoRepo.RegistrarAsync(new MovimientoInventario
+ {
+ ProductoId = det.ProductoId,
+ Fecha = DateTime.UtcNow,
+ Cantidad = det.Cantidad,
+ Tipo = TipoMovimientoInventario.Ingreso,
+ Motivo = "Cancelación de venta",
+ ReferenciaId = ventaId
+ });
+ }
+ await _ventaRepo.CancelarAsync(ventaId);
+ }
+ }
+}

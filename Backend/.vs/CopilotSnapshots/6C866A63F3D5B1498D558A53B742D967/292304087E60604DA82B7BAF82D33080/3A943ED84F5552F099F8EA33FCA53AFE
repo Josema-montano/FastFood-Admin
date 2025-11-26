@@ -1,0 +1,20 @@
+﻿using Aplication.UseCases.Usuarios;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/usuarios")]
+ [Authorize(Roles="administrador")] // proteger todo el controlador
+ public class UsuariosController : ControllerBase
+ {
+ private readonly ListarUsuarios _listar;
+ public UsuariosController(ListarUsuarios listar)
+ { _listar = listar; }
+
+ [HttpGet]
+ public async Task<IActionResult> Listar() => Ok(await _listar.EjecutarAsync());
+ }
+}

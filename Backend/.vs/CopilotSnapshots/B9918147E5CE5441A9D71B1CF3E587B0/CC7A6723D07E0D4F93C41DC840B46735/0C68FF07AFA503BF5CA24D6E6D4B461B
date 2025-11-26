@@ -1,0 +1,32 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Inventario
+{
+ public class ActualizarInventario
+ {
+ private readonly IProductoRepositorio _productoRepo;
+ private readonly IMovimientoInventarioRepositorio _movRepo;
+ public ActualizarInventario(IProductoRepositorio productoRepo, IMovimientoInventarioRepositorio movRepo)
+ {
+ _productoRepo = productoRepo;
+ _movRepo = movRepo;
+ }
+ public async Task EjecutarAsync(int productoId, int cantidad, TipoMovimientoInventario tipo, string motivo, int? referenciaId=null)
+ {
+ if (cantidad<=0) throw new ArgumentException("La cantidad debe ser positiva");
+ var prod = await _productoRepo.ObtenerPorIdAsync(productoId);
+ if (prod == null) throw new ArgumentException($"Producto con ID {productoId} no encontrado");
+ if (tipo==TipoMovimientoInventario.Egreso && prod.Stock < cantidad)
+ throw new InvalidOperationException($"Stock insuficiente. Stock actual: {prod.Stock}, solicitado: {cantidad}");
+
+ prod.Stock += tipo==TipoMovimientoInventario.Ingreso ? cantidad : -cantidad;
+ await _productoRepo.ActualizarAsync(prod);
+
+ var mov = new MovimientoInventario{ ProductoId=productoId, Fecha=DateTime.UtcNow, Cantidad=cantidad, Tipo=tipo, Motivo=motivo, ReferenciaId=referenciaId };
+ await _movRepo.RegistrarAsync(mov);
+ }
+ }
+}

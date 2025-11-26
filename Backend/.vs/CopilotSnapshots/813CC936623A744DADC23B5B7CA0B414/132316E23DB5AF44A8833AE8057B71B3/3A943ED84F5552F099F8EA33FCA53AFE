@@ -1,0 +1,37 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Usuarios;
+using Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/usuarios")]
+ public class UsuariosController : ControllerBase
+ {
+ private readonly RegistrarUsuario _registrar;
+ private readonly Login _login;
+ private readonly ListarUsuarios _listar;
+ public UsuariosController(RegistrarUsuario registrar, Login login, ListarUsuarios listar)
+ { _registrar = registrar; _login = login; _listar = listar; }
+
+ [HttpPost]
+ public async Task<IActionResult> Registrar([FromBody] RegistrarUsuarioDTO dto)
+ {
+ var id = await _registrar.EjecutarAsync(dto);
+ return Ok(new { id });
+ }
+
+ [HttpPost("login")]
+ public async Task<IActionResult> Login([FromBody] LoginDTO dto)
+ {
+ var ok = await _login.EjecutarAsync(dto);
+ if(!ok) return Unauthorized();
+ return Ok(new { mensaje = "Login correcto" });
+ }
+
+ [HttpGet]
+ public async Task<IActionResult> Listar() => Ok(await _listar.EjecutarAsync());
+ }
+}

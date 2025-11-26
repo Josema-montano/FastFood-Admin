@@ -1,0 +1,1821 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\tipomovimientoinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\tipomovimientoinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\migrations\\20251124051141_agregarestadofinalizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\migrations\\20251124051141_agregarestadofinalizado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers_tests.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers_tests.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\pagoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\pagoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\models\\productocrearconimagenbase64request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\models\\productocrearconimagenbase64request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\repositorios\\pedidorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorios\\pedidorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\interfaces\\ipedidorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\ipedidorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\hubs\\pedidoshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\hubs\\pedidoshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\interfaces\\iproductorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iproductorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\pedidos\\actualizarestadopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\pedidos\\actualizarestadopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\estadopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\estadopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\estadopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\estadopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\detallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\detallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\pedidos\\crearpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\pedidos\\crearpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\migrations\\20251123070412_actualizacionesrestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\migrations\\20251123070412_actualizacionesrestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\migrations\\20251123050733_inicialrestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\migrations\\20251123050733_inicialrestaurante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\alertascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\alertascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\inventarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\inventarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\inventarios\\obtenerinventarioporproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\inventarios\\obtenerinventarioporproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\inventarios\\listarinventarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\inventarios\\listarinventarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\inventarios\\generaralertasstockminimo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\inventarios\\generaralertasstockminimo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\inventarios\\crearinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\inventarios\\crearinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\inventarios\\actualizarinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\inventarios\\actualizarinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\dtos\\productodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\dtos\\productodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\dtos\\pagodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\dtos\\pagodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\dtos\\pedidodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\dtos\\pedidodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\productos\\crearproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\productos\\crearproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\repositorios\\pagorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorios\\pagorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\repositorios\\inventariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorios\\inventariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\dtos\\inventariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\dtos\\inventariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\middleware\\auditmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\middleware\\auditmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\904228149\\POSController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\RegistrarDevolucion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\interfaces\\ipagorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\ipagorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\interfaces\\iinventariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iinventariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\dtos\\ventadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\dtos\\ventadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\aplication.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\aplication.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers_documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers_documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251025232153_Inicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Infraestructure\\Migrations\\20251025232153_Inicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\infraestructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\infraestructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\GUIA_DE_USO.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GUIA_DE_USO.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\controllers_tests.http||{3B902123-F8A7-4915-9F01-361F908088D0}|",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\controllers_tests.http||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\implementation_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\implementation_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\repositorios\\productorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorios\\productorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\reporte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\pedidos\\listarpedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\pedidos\\listarpedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\pedidos\\registrarpagopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\pedidos\\registrarpagopedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\Promocion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\PromocionProducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\AppDbContextModelSnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ObtenerDevolucionPorId.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ListarDevoluciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-1215073558\\ListarPromociones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1271517780\\ProveedorRepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\productos\\actualizarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\productos\\actualizarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\productos\\eliminarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\productos\\eliminarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\productos\\obtenerproductoporid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\productos\\obtenerproductoporid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\productos\\listarproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\productos\\listarproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\entities\\pedidoestadohistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\pedidoestadohistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\domain\\interfaces\\iusuariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5763876C-7A59-46CC-BBEB-F881D2EEF38B}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iusuariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\repositorios\\usuariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorios\\usuariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\usuarios\\registrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\usuarios\\registrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\usuarios\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\usuarios\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\usuarios\\listarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\usuarios\\listarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\reportes\\generarreporteinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\reportes\\generarreporteinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\models\\productocrearconimagenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\models\\productocrearconimagenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\models\\productoactualizarconimagenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\models\\productoactualizarconimagenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\.watchignore||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\.watchignore||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\usuarios\\actualizarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\usuarios\\actualizarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\usuarios\\obtenerusuarioporid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\usuarios\\obtenerusuarioporid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\pagos\\listarpagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\pagos\\listarpagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\aplication\\usecases\\reportes\\generarreportepagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{217AB9D6-A17E-4F73-8E87-8936A589FFE9}|Aplication\\Aplication.csproj|solutionrelative:aplication\\usecases\\reportes\\generarreportepagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\pagos_reportes_documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\pagos_reportes_documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\api\\estados_pedidos_documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{BC55F46C-10C7-4AE5-B940-F10737182DF9}|API\\API.csproj|solutionrelative:api\\estados_pedidos_documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|c:\\users\\usuario\\source\\repos\\proyectofinal\\infraestructure\\migrations\\migration_notes_agregarestadofinalizado.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|",
+      "RelativeMoniker": "D:0:0:{89C96D12-B0B9-4D8D-B1A2-A68C509BD097}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\migrations\\migration_notes_agregarestadofinalizado.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20251124051141_AgregarEstadoFinalizado.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251124051141_AgregarEstadoFinalizado.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Migrations\\20251124051141_AgregarEstadoFinalizado.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251124051141_AgregarEstadoFinalizado.cs",
+              "RelativeToolTip": "Infraestructure\\Migrations\\20251124051141_AgregarEstadoFinalizado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T05:12:02.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TipoMovimientoInventario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\TipoMovimientoInventario.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\TipoMovimientoInventario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\TipoMovimientoInventario.cs",
+              "RelativeToolTip": "Domain\\Entities\\TipoMovimientoInventario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:40:28.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 109,
+              "Title": "MIGRATION_NOTES_AgregarEstadoFinalizado.md",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\MIGRATION_NOTES_AgregarEstadoFinalizado.md",
+              "RelativeDocumentMoniker": "Infraestructure\\Migrations\\MIGRATION_NOTES_AgregarEstadoFinalizado.md",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\MIGRATION_NOTES_AgregarEstadoFinalizado.md",
+              "RelativeToolTip": "Infraestructure\\Migrations\\MIGRATION_NOTES_AgregarEstadoFinalizado.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-24T05:15:42.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 108,
+              "Title": "ESTADOS_PEDIDOS_DOCUMENTATION.md",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\ESTADOS_PEDIDOS_DOCUMENTATION.md",
+              "RelativeDocumentMoniker": "API\\ESTADOS_PEDIDOS_DOCUMENTATION.md",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\ESTADOS_PEDIDOS_DOCUMENTATION.md",
+              "RelativeToolTip": "API\\ESTADOS_PEDIDOS_DOCUMENTATION.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-24T05:13:15.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 107,
+              "Title": "PAGOS_REPORTES_DOCUMENTATION.md",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\PAGOS_REPORTES_DOCUMENTATION.md",
+              "RelativeDocumentMoniker": "API\\PAGOS_REPORTES_DOCUMENTATION.md",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\PAGOS_REPORTES_DOCUMENTATION.md",
+              "RelativeToolTip": "API\\PAGOS_REPORTES_DOCUMENTATION.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-24T04:54:28.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PagosController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\PagosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\PagosController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\PagosController.cs",
+              "RelativeToolTip": "API\\Controllers\\PagosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:51:15.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 106,
+              "Title": "GenerarReportePagos.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Reportes\\GenerarReportePagos.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Reportes\\GenerarReportePagos.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Reportes\\GenerarReportePagos.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Reportes\\GenerarReportePagos.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAEBVwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:51:04.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 105,
+              "Title": "ListarPagos.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pagos\\ListarPagos.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Pagos\\ListarPagos.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pagos\\ListarPagos.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Pagos\\ListarPagos.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAEBVwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:50:49.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 104,
+              "Title": "ObtenerUsuarioPorId.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\ObtenerUsuarioPorId.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Usuarios\\ObtenerUsuarioPorId.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\ObtenerUsuarioPorId.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Usuarios\\ObtenerUsuarioPorId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:21:43.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 103,
+              "Title": "ActualizarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\ActualizarUsuario.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Usuarios\\ActualizarUsuario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\ActualizarUsuario.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Usuarios\\ActualizarUsuario.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAABRwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:21:37.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Program.cs",
+              "RelativeDocumentMoniker": "API\\Program.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Program.cs",
+              "RelativeToolTip": "API\\Program.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAAANoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T22:25:02.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Controllers_Tests.http",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers_Tests.http",
+              "RelativeDocumentMoniker": "API\\Controllers_Tests.http",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers_Tests.http",
+              "RelativeToolTip": "API\\Controllers_Tests.http",
+              "ViewState": "AgIAAJEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-25T22:33:58.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 102,
+              "Title": ".watchignore",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\.watchignore",
+              "RelativeDocumentMoniker": "API\\.watchignore",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\.watchignore",
+              "RelativeToolTip": "API\\.watchignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-24T03:11:30.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductoCrearConImagenBase64Request.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Models\\ProductoCrearConImagenBase64Request.cs",
+              "RelativeDocumentMoniker": "API\\Models\\ProductoCrearConImagenBase64Request.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Models\\ProductoCrearConImagenBase64Request.cs",
+              "RelativeToolTip": "API\\Models\\ProductoCrearConImagenBase64Request.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T02:50:30.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "API.csproj",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\API.csproj",
+              "RelativeDocumentMoniker": "API\\API.csproj",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\API.csproj",
+              "RelativeToolTip": "API\\API.csproj",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-25T22:36:16.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 101,
+              "Title": "ProductoActualizarConImagenRequest.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Models\\ProductoActualizarConImagenRequest.cs",
+              "RelativeDocumentMoniker": "API\\Models\\ProductoActualizarConImagenRequest.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Models\\ProductoActualizarConImagenRequest.cs",
+              "RelativeToolTip": "API\\Models\\ProductoActualizarConImagenRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T00:05:03.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "ProductoCrearConImagenRequest.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Models\\ProductoCrearConImagenRequest.cs",
+              "RelativeDocumentMoniker": "API\\Models\\ProductoCrearConImagenRequest.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Models\\ProductoCrearConImagenRequest.cs",
+              "RelativeToolTip": "API\\Models\\ProductoCrearConImagenRequest.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAEBUwBkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T23:52:52.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IProductoRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IProductoRepositorio.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IProductoRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IProductoRepositorio.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IProductoRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T23:11:10.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "API\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAABwBAAAAAAAAAEBVwCABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:12:48.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IPedidoRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IPedidoRepositorio.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IPedidoRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IPedidoRepositorio.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IPedidoRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:27:40.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Pedido.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Pedido.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Pedido.cs",
+              "RelativeToolTip": "Domain\\Entities\\Pedido.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA1wBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:25:29.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PedidosHub.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Hubs\\PedidosHub.cs",
+              "RelativeDocumentMoniker": "API\\Hubs\\PedidosHub.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Hubs\\PedidosHub.cs",
+              "RelativeToolTip": "API\\Hubs\\PedidosHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:32:51.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Infraestructure\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAqwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T22:15:08.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PedidoRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\PedidoRepositorio.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorios\\PedidoRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\PedidoRepositorio.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorios\\PedidoRepositorio.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:27:50.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PedidosController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\PedidosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\PedidosController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\PedidosController.cs",
+              "RelativeToolTip": "API\\Controllers\\PedidosController.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAA2wHwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:28:25.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\MenuController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\MenuController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\MenuController.cs",
+              "RelativeToolTip": "API\\Controllers\\MenuController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:33:58.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "API\\Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAABRwDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:30:20.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAiwE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T06:25:54.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ActualizarEstadoPedido.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\ActualizarEstadoPedido.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Pedidos\\ActualizarEstadoPedido.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\ActualizarEstadoPedido.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Pedidos\\ActualizarEstadoPedido.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAIBZwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:28:06.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "EstadoPedido.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\EstadoPedido.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\EstadoPedido.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\EstadoPedido.cs",
+              "RelativeToolTip": "Domain\\Entities\\EstadoPedido.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAABRwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:25:22.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "EstadoPago.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\EstadoPago.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\EstadoPago.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\EstadoPago.cs",
+              "RelativeToolTip": "Domain\\Entities\\EstadoPago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T06:44:05.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DetallePedido.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\DetallePedido.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\DetallePedido.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\DetallePedido.cs",
+              "RelativeToolTip": "Domain\\Entities\\DetallePedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:25:34.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CrearPedido.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\CrearPedido.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Pedidos\\CrearPedido.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\CrearPedido.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Pedidos\\CrearPedido.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAqwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:28:02.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20251123070412_ActualizacionesRestaurante.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251123070412_ActualizacionesRestaurante.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Migrations\\20251123070412_ActualizacionesRestaurante.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251123070412_ActualizacionesRestaurante.cs",
+              "RelativeToolTip": "Infraestructure\\Migrations\\20251123070412_ActualizacionesRestaurante.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAcwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T07:05:34.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ReportesController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\ReportesController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\ReportesController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\ReportesController.cs",
+              "RelativeToolTip": "API\\Controllers\\ReportesController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAEBVwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:30:50.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "InventariosController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\InventariosController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\InventariosController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\InventariosController.cs",
+              "RelativeToolTip": "API\\Controllers\\InventariosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:15:05.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20251123050733_InicialRestaurante.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251123050733_InicialRestaurante.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Migrations\\20251123050733_InicialRestaurante.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251123050733_InicialRestaurante.cs",
+              "RelativeToolTip": "Infraestructure\\Migrations\\20251123050733_InicialRestaurante.cs",
+              "ViewState": "AgIAALgAAAAAAAAAAAAiwNIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T07:05:32.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AlertasController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\AlertasController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\AlertasController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\AlertasController.cs",
+              "RelativeToolTip": "API\\Controllers\\AlertasController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAawB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:34:12.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "API\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T07:05:23.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ObtenerInventarioPorProducto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\ObtenerInventarioPorProducto.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Inventarios\\ObtenerInventarioPorProducto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\ObtenerInventarioPorProducto.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Inventarios\\ObtenerInventarioPorProducto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:14:39.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Pago.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Pago.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Pago.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Pago.cs",
+              "RelativeToolTip": "Domain\\Entities\\Pago.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:25:37.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ActualizarInventario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\ActualizarInventario.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Inventarios\\ActualizarInventario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\ActualizarInventario.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Inventarios\\ActualizarInventario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:14:34.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "CrearInventario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\CrearInventario.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Inventarios\\CrearInventario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\CrearInventario.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Inventarios\\CrearInventario.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:14:28.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "GenerarAlertasStockMinimo.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\GenerarAlertasStockMinimo.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Inventarios\\GenerarAlertasStockMinimo.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\GenerarAlertasStockMinimo.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Inventarios\\GenerarAlertasStockMinimo.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:34:05.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ListarInventarios.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\ListarInventarios.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Inventarios\\ListarInventarios.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Inventarios\\ListarInventarios.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Inventarios\\ListarInventarios.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:14:44.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ProductoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\ProductoDTO.cs",
+              "RelativeDocumentMoniker": "Aplication\\DTOs\\ProductoDTO.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\ProductoDTO.cs",
+              "RelativeToolTip": "Aplication\\DTOs\\ProductoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:11:53.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "PagoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\PagoDTO.cs",
+              "RelativeDocumentMoniker": "Aplication\\DTOs\\PagoDTO.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\PagoDTO.cs",
+              "RelativeToolTip": "Aplication\\DTOs\\PagoDTO.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAEBUwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:27:36.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "PedidoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\PedidoDTO.cs",
+              "RelativeDocumentMoniker": "Aplication\\DTOs\\PedidoDTO.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\PedidoDTO.cs",
+              "RelativeToolTip": "Aplication\\DTOs\\PedidoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:27:32.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CrearProducto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\CrearProducto.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Productos\\CrearProducto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\CrearProducto.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Productos\\CrearProducto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:12:06.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "PagoRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\PagoRepositorio.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorios\\PagoRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\PagoRepositorio.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorios\\PagoRepositorio.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAABBwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:27:54.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "InventarioRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\InventarioRepositorio.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorios\\InventarioRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\InventarioRepositorio.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorios\\InventarioRepositorio.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAlwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:38:46.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Infraestructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T07:05:39.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "AuditMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Middleware\\AuditMiddleware.cs",
+              "RelativeDocumentMoniker": "API\\Middleware\\AuditMiddleware.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Middleware\\AuditMiddleware.cs",
+              "RelativeToolTip": "API\\Middleware\\AuditMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T06:26:02.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\Login.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Usuarios\\Login.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\Login.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Usuarios\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:30:06.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "IUsuarioRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IUsuarioRepositorio.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IUsuarioRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IUsuarioRepositorio.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IUsuarioRepositorio.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAEBUwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:29:30.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "InventarioDTO.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\InventarioDTO.cs",
+              "RelativeDocumentMoniker": "Aplication\\DTOs\\InventarioDTO.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\InventarioDTO.cs",
+              "RelativeToolTip": "Aplication\\DTOs\\InventarioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:14:17.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "PedidoEstadoHistorial.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\PedidoEstadoHistorial.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\PedidoEstadoHistorial.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\PedidoEstadoHistorial.cs",
+              "RelativeToolTip": "Domain\\Entities\\PedidoEstadoHistorial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:19:13.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\appsettings.json",
+              "RelativeDocumentMoniker": "API\\appsettings.json",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\appsettings.json",
+              "RelativeToolTip": "API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-25T22:20:08.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "UsuarioRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\UsuarioRepositorio.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorios\\UsuarioRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\UsuarioRepositorio.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorios\\UsuarioRepositorio.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAABRwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:29:36.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "UsuarioDTO.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\UsuarioDTO.cs",
+              "RelativeDocumentMoniker": "Aplication\\DTOs\\UsuarioDTO.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\UsuarioDTO.cs",
+              "RelativeToolTip": "Aplication\\DTOs\\UsuarioDTO.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAEBUwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:29:44.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "RegistrarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\RegistrarUsuario.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Usuarios\\RegistrarUsuario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\RegistrarUsuario.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Usuarios\\RegistrarUsuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:29:59.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "ListarUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\ListarUsuarios.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Usuarios\\ListarUsuarios.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Usuarios\\ListarUsuarios.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Usuarios\\ListarUsuarios.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:30:12.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "GenerarReporteInventario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Reportes\\GenerarReporteInventario.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Reportes\\GenerarReporteInventario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Reportes\\GenerarReporteInventario.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Reportes\\GenerarReporteInventario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:30:43.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "POSController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\904228149\\POSController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\904228149\\POSController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\904228149\\POSController.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\904228149\\POSController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:07:07.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "ObtenerProductoPorId.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\ObtenerProductoPorId.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Productos\\ObtenerProductoPorId.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\ObtenerProductoPorId.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Productos\\ObtenerProductoPorId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:12:23.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "ListarProductos.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\ListarProductos.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Productos\\ListarProductos.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\ListarProductos.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Productos\\ListarProductos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:12:28.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "EliminarProducto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\EliminarProducto.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Productos\\EliminarProducto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\EliminarProducto.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Productos\\EliminarProducto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:12:17.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "ActualizarProducto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\ActualizarProducto.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Productos\\ActualizarProducto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Productos\\ActualizarProducto.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Productos\\ActualizarProducto.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAABBwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:12:11.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "ProveedorRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1271517780\\ProveedorRepositorio.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1271517780\\ProveedorRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1271517780\\ProveedorRepositorio.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1271517780\\ProveedorRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:06:30.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "ListarPromociones.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-1215073558\\ListarPromociones.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-1215073558\\ListarPromociones.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-1215073558\\ListarPromociones.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\-1215073558\\ListarPromociones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:06:24.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "ListarDevoluciones.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ListarDevoluciones.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ListarDevoluciones.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ListarDevoluciones.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ListarDevoluciones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:06:18.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "ObtenerDevolucionPorId.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ObtenerDevolucionPorId.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ObtenerDevolucionPorId.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ObtenerDevolucionPorId.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\ObtenerDevolucionPorId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:06:13.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "RegistrarDevolucion.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\RegistrarDevolucion.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\RegistrarDevolucion.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\RegistrarDevolucion.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1837915922\\RegistrarDevolucion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:06:07.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "20251026003014_AgregarImagenUrlAProducto.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.Designer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.Designer.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.Designer.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:04:53.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "20251026003014_AgregarImagenUrlAProducto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026003014_AgregarImagenUrlAProducto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:04:49.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "20251025232608_Inicial.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.Designer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.Designer.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.Designer.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:04:45.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "20251025232608_Inicial.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251025232608_Inicial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:04:41.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "20251026013622_POS_Ventas.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:04:58.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:30.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "20251026210002_VentaCamposPOS.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.Designer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.Designer.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.Designer.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:26.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "20251026210002_VentaCamposPOS.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026210002_VentaCamposPOS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:22.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "20251026205201_VentaMotivoCancelacion.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.Designer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.Designer.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.Designer.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:19.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "20251026205201_VentaMotivoCancelacion.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026205201_VentaMotivoCancelacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:15.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "20251026014810_VentaCancelada.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.Designer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.Designer.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.Designer.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:12.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "20251026014810_VentaCancelada.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026014810_VentaCancelada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:07.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "20251026013622_POS_Ventas.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.Designer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.Designer.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.Designer.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\1662602799\\20251026013622_POS_Ventas.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:05:02.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "PromocionProducto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\PromocionProducto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\PromocionProducto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\PromocionProducto.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\PromocionProducto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:51:47.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "Promocion.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\Promocion.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\Promocion.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\Promocion.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\CopilotBaseline\\Deleted\\755290259\\Promocion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:51:47.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Class1.cs",
+              "RelativeDocumentMoniker": "Domain\\Class1.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Class1.cs",
+              "RelativeToolTip": "Domain\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:50:14.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "API.http",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\API.http",
+              "RelativeDocumentMoniker": "API\\API.http",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\API.http",
+              "RelativeToolTip": "API\\API.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-25T22:20:07.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Inventario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Inventario.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Inventario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Inventario.cs",
+              "RelativeToolTip": "Domain\\Entities\\Inventario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:25:48.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "IPagoRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IPagoRepositorio.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IPagoRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IPagoRepositorio.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IPagoRepositorio.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAEBUwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:27:44.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "IInventarioRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IInventarioRepositorio.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IInventarioRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Interfaces\\IInventarioRepositorio.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IInventarioRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:38:39.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "VentaDTO.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\VentaDTO.cs",
+              "RelativeDocumentMoniker": "Aplication\\DTOs\\VentaDTO.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\DTOs\\VentaDTO.cs",
+              "RelativeToolTip": "Aplication\\DTOs\\VentaDTO.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T01:35:22.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Usuario.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Usuario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Usuario.cs",
+              "RelativeToolTip": "Domain\\Entities\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:25:42.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Producto.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Producto.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Producto.cs",
+              "RelativeToolTip": "Domain\\Entities\\Producto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAywBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T21:55:52.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Aplication.csproj",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\Aplication.csproj",
+              "RelativeDocumentMoniker": "Aplication\\Aplication.csproj",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\Aplication.csproj",
+              "RelativeToolTip": "Aplication\\Aplication.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-25T22:22:25.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "Reporte.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Reporte.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Reporte.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Entities\\Reporte.cs",
+              "RelativeToolTip": "Domain\\Entities\\Reporte.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:25:45.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "RegistrarPagoPedido.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\RegistrarPagoPedido.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Pedidos\\RegistrarPagoPedido.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\RegistrarPagoPedido.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Pedidos\\RegistrarPagoPedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:28:17.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "ListarPedidos.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\ListarPedidos.cs",
+              "RelativeDocumentMoniker": "Aplication\\UseCases\\Pedidos\\ListarPedidos.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\UseCases\\Pedidos\\ListarPedidos.cs",
+              "RelativeToolTip": "Aplication\\UseCases\\Pedidos\\ListarPedidos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:28:11.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "20251025232153_Inicial.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251025232153_Inicial.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Migrations\\20251025232153_Inicial.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Migrations\\20251025232153_Inicial.cs",
+              "RelativeToolTip": "Infraestructure\\Migrations\\20251025232153_Inicial.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T23:21:53.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "CONTROLLERS_DOCUMENTATION.md",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\CONTROLLERS_DOCUMENTATION.md",
+              "RelativeDocumentMoniker": "API\\CONTROLLERS_DOCUMENTATION.md",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\CONTROLLERS_DOCUMENTATION.md",
+              "RelativeToolTip": "API\\CONTROLLERS_DOCUMENTATION.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-10-25T22:28:14.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "ProductoRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\ProductoRepositorio.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorios\\ProductoRepositorio.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Repositorios\\ProductoRepositorio.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorios\\ProductoRepositorio.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T23:13:24.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "IMPLEMENTATION_SUMMARY.md",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\IMPLEMENTATION_SUMMARY.md",
+              "RelativeDocumentMoniker": "API\\IMPLEMENTATION_SUMMARY.md",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\IMPLEMENTATION_SUMMARY.md",
+              "RelativeToolTip": "API\\IMPLEMENTATION_SUMMARY.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-10-25T22:29:23.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "Controllers_Tests.http",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers_Tests.http",
+              "RelativeDocumentMoniker": "API\\Controllers_Tests.http",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\API\\Controllers_Tests.http",
+              "RelativeToolTip": "API\\Controllers_Tests.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-25T22:28:41.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "Infraestructure.csproj",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Infraestructure.csproj",
+              "RelativeDocumentMoniker": "Infraestructure\\Infraestructure.csproj",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Infraestructure\\Infraestructure.csproj",
+              "RelativeToolTip": "Infraestructure\\Infraestructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-25T22:22:49.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "Domain.csproj",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Domain.csproj",
+              "RelativeDocumentMoniker": "Domain\\Domain.csproj",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Domain\\Domain.csproj",
+              "RelativeToolTip": "Domain\\Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-25T22:22:37.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\Mapping\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Aplication\\Mapping\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\Aplication\\Mapping\\MappingProfile.cs",
+              "RelativeToolTip": "Aplication\\Mapping\\MappingProfile.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAMBdwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T22:00:57.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-10-25T22:04:05.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "GUIA_DE_USO.md",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\GUIA_DE_USO.md",
+              "RelativeDocumentMoniker": "GUIA_DE_USO.md",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\ProyectoFinal\\GUIA_DE_USO.md",
+              "RelativeToolTip": "GUIA_DE_USO.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-10-25T22:05:22.555Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Proveedores
+{
+    public class ActualizarProveedor
+    {
+        private readonly IProveedorRepositorio _proveedorRepositorio;
+
+        public ActualizarProveedor(IProveedorRepositorio proveedorRepositorio)
+        {
+            _proveedorRepositorio = proveedorRepositorio;
+        }
+
+        public async Task EjecutarAsync(Proveedor proveedor)
+        {
+            // Validaciones de negocio
+            ValidarProveedor(proveedor);
+
+            if (proveedor.Id == 0)
+                throw new ArgumentException("El ID del proveedor es obligatorio.");
+
+            var proveedorExistente = await _proveedorRepositorio.ObtenerPorIdAsync(proveedor.Id);
+            if (proveedorExistente is null)
+                throw new InvalidOperationException("El proveedor no existe.");
+
+            await _proveedorRepositorio.ActualizarAsync(proveedor);
+        }
+
+        private void ValidarProveedor(Proveedor proveedor)
+        {
+            if (proveedor is null)
+                throw new ArgumentNullException(nameof(proveedor));
+
+            if (string.IsNullOrWhiteSpace(proveedor.Nombre))
+                throw new ArgumentException("El nombre es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(proveedor.Ruc))
+                throw new ArgumentException("El RUC es obligatorio.");
+        }
+    }
+}

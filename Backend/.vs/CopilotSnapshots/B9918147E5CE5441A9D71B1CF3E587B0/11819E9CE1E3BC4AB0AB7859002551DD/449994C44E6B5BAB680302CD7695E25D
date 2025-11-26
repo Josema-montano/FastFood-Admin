@@ -1,0 +1,25 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Promociones
+{
+    public class ObtenerPromocionPorId
+{
+ private readonly IPromocionRepositorio _promocionRepositorio;
+
+        public ObtenerPromocionPorId(IPromocionRepositorio promocionRepositorio)
+        {
+   _promocionRepositorio = promocionRepositorio;
+        }
+
+public async Task<Promocion?> EjecutarAsync(int promocionId)
+ {
+       if (promocionId == 0)
+  throw new ArgumentException("El ID de la promoción es obligatorio.");
+
+   return await _promocionRepositorio.ObtenerPorIdAsync(promocionId);
+        }
+    }
+}

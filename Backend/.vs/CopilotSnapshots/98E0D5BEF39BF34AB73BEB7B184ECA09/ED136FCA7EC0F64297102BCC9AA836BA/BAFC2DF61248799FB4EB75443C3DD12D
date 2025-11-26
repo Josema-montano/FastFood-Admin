@@ -1,0 +1,23 @@
+﻿using Aplication.DTOs;
+using AutoMapper;
+using Domain.Entities;
+
+namespace Aplication.Mapping
+{
+ public class MappingProfile : Profile
+ {
+ public MappingProfile()
+ {
+ CreateMap<Proveedor, ProveedorDTO>().ReverseMap();
+ CreateMap<Cliente, ClienteDTO>().ReverseMap();
+ CreateMap<Producto, ProductoDTO>().ReverseMap();
+ CreateMap<Promocion, PromocionDTO>().ReverseMap();
+ CreateMap<PromocionProducto, PromocionProductoDTO>().ReverseMap();
+ CreateMap<MovimientoInventario, MovimientoInventarioDTO>()
+ .ForMember(d=>d.Tipo, opt=> opt.MapFrom(s=> s.Tipo.ToString()))
+ .ReverseMap()
+ .ForMember(d=>d.Tipo, opt=> opt.MapFrom(s=> Enum.Parse<TipoMovimientoInventario>(s.Tipo)));
+ CreateMap<Devolucion, DevolucionDTO>().ReverseMap();
+ }
+ }
+}

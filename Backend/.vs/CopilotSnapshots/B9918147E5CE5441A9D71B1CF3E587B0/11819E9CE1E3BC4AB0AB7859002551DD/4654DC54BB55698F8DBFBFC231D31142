@@ -1,0 +1,86 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Inventario;
+using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+  [Route("api/[controller]")]
+  [ApiController]
+    public class InventarioController : ControllerBase
+    {
+    private readonly ActualizarInventario _actualizarInventario;
+private readonly ListarMovimientosPorProducto _listarMovimientosPorProducto;
+ private readonly GenerarAlertasStockMinimo _generarAlertasStockMinimo;
+private readonly ListarTodosMovimientos _listarTodosMovimientos;
+
+        public InventarioController(
+       ActualizarInventario actualizarInventario,
+       ListarMovimientosPorProducto listarMovimientosPorProducto,
+ GenerarAlertasStockMinimo generarAlertasStockMinimo,
+ ListarTodosMovimientos listarTodosMovimientos)
+ {
+     _actualizarInventario = actualizarInventario;
+    _listarMovimientosPorProducto = listarMovimientosPorProducto;
+       _generarAlertasStockMinimo = generarAlertasStockMinimo;
+     _listarTodosMovimientos = listarTodosMovimientos;
+  }
+
+   [HttpGet("movimientos/{productoId}")]
+   public async Task<IActionResult> GetMovimientosByProducto(int productoId)
+        {
+    var movimientos = await _listarMovimientosPorProducto.EjecutarAsync(productoId);
+
+ if (!movimientos.Any())
+     return NotFound(new { mensaje = "No hay movimientos registrados para este producto." });
+
+            return Ok(movimientos);
+        }
+
+[HttpPost("actualizar")]
+public async Task<IActionResult> ActualizarStock([FromBody] MovimientoInventarioDTO movimientoDTO)
+{
+ if (!ModelState.IsValid)
+ return BadRequest(ModelState);
+
+ try
+ {
+ // Parsear el tipo de movimiento desde string
+ if (!Enum.TryParse<TipoMovimientoInventario>(movimientoDTO.Tipo, true, out var tipoMovimiento))
+ return BadRequest(new { mensaje = "Tipo de movimiento inválido. Use 'Ingreso' o 'Egreso'." });
+
+ await _actualizarInventario.EjecutarAsync(
+ movimientoDTO.ProductoId,
+ movimientoDTO.Cantidad,
+ tipoMovimiento,
+ movimientoDTO.Motivo);
+
+ return Ok(new { mensaje = "Inventario actualizado correctamente." });
+ }
+ catch (Exception ex)
+ {
+ return StatusCode(500, new { mensaje = ex.Message, detalle = ex.StackTrace });
+ }
+}
+
+        [HttpGet("alertas")]
+  public async Task<IActionResult> GetAlertasStockMinimo()
+     {
+   var alertas = await _generarAlertasStockMinimo.EjecutarAsync();
+
+       if (!alertas.Any())
+   return Ok(new { mensaje = "No hay productos con stock bajo el mínimo." });
+
+    return Ok(alertas);
+  }
+
+    [HttpGet("movimientos")]
+public async Task<IActionResult> GetAllMovimientos()
+{
+ var movimientos = await _listarTodosMovimientos.EjecutarAsync();
+ if (!movimientos.Any())
+ return Ok(new { mensaje = "No hay movimientos registrados." });
+ return Ok(movimientos);
+}
+  }
+}

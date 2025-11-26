@@ -1,0 +1,12 @@
+﻿using Domain.Entities;
+using System;
+using System.Threading.Tasks;
+
+namespace Domain.Interfaces
+{
+ public interface IPagoRepositorio
+ {
+ Task<Pago> RegistrarAsync(Pago pago);
+ Task<Pago?> ObtenerPorPedidoIdAsync(Guid pedidoId);
+ }
+}

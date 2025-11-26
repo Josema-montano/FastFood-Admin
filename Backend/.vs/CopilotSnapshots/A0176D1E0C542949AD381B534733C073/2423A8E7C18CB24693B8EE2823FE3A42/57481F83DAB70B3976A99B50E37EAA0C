@@ -1,0 +1,28 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Devoluciones
+{
+ public class RegistrarDevolucion
+ {
+ private readonly IDevolucionRepositorio _devolRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ private readonly IMovimientoInventarioRepositorio _movRepo;
+ public RegistrarDevolucion(IDevolucionRepositorio devolRepo, IProductoRepositorio productoRepo, IMovimientoInventarioRepositorio movRepo)
+ { _devolRepo=devolRepo; _productoRepo=productoRepo; _movRepo=movRepo; }
+ public async Task<Guid> EjecutarAsync(Guid productoId, int cantidad, string motivo, Guid? clienteId=null)
+ {
+ if (cantidad<=0) throw new ArgumentException("Cantidad inválida");
+ var prod = await _productoRepo.ObtenerPorIdAsync(productoId) ?? throw new ArgumentException("Producto no encontrado");
+ var devol = new Devolucion{ Id=Guid.NewGuid(), ProductoId=productoId, ClienteId=clienteId, Fecha=DateTime.UtcNow, Cantidad=cantidad, Motivo=motivo };
+ await _devolRepo.RegistrarAsync(devol);
+ var mov = new MovimientoInventario{ Id=Guid.NewGuid(), ProductoId=productoId, Fecha=DateTime.UtcNow, Cantidad=cantidad, Tipo=TipoMovimientoInventario.Ingreso, Motivo=$"Devolución: {motivo}", ReferenciaId=devol.Id };
+ prod.Stock += cantidad;
+ await _productoRepo.ActualizarAsync(prod);
+ await _movRepo.RegistrarAsync(mov);
+ return devol.Id;
+ }
+ }
+}

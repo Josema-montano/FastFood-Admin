@@ -1,0 +1,13 @@
+﻿using System;
+
+namespace Domain.Entities
+{
+ public class PromocionProducto
+ {
+ public Guid PromocionId { get; set; }
+ public Promocion? Promocion { get; set; }
+ public Guid ProductoId { get; set; }
+ public Producto? Producto { get; set; }
+ public decimal DescuentoPorcentaje { get; set; } //0-100
+ }
+}

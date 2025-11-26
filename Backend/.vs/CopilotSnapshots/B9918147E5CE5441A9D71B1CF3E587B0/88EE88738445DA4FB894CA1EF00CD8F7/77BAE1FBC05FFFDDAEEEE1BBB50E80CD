@@ -1,0 +1,28 @@
+﻿using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Proveedores
+{
+    public class EliminarProveedor
+    {
+        private readonly IProveedorRepositorio _proveedorRepositorio;
+
+        public EliminarProveedor(IProveedorRepositorio proveedorRepositorio)
+        {
+            _proveedorRepositorio = proveedorRepositorio;
+        }
+
+        public async Task EjecutarAsync(int proveedorId)
+        {
+            if (proveedorId == 0)
+                throw new ArgumentException("El ID del proveedor es obligatorio.");
+
+            var proveedor = await _proveedorRepositorio.ObtenerPorIdAsync(proveedorId);
+            if (proveedor is null)
+                throw new ArgumentException("El proveedor no existe.");
+
+            await _proveedorRepositorio.EliminarAsync(proveedorId);
+        }
+    }
+}

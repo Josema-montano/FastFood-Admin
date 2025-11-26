@@ -1,0 +1,110 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Pedidos;
+using Domain.Entities;
+using Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Authorization;
+using API.Hubs;
+using System;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/pedidos")]
+ public class PedidosController : ControllerBase
+ {
+ private readonly CrearPedido _crear;
+ private readonly ListarPedidos _listar;
+ private readonly ActualizarEstadoPedido _actualizarEstado;
+ private readonly RegistrarPagoPedido _registrarPago;
+ private readonly IPedidoRepositorio _pedidoRepo;
+ private readonly IHubContext<PedidosHub> _hub;
+ public PedidosController(CrearPedido crear, ListarPedidos listar, ActualizarEstadoPedido actualizarEstado, RegistrarPagoPedido registrarPago, IPedidoRepositorio pedidoRepo, IHubContext<PedidosHub> hub)
+ { _crear = crear; _listar = listar; _actualizarEstado = actualizarEstado; _registrarPago = registrarPago; _pedidoRepo = pedidoRepo; _hub = hub; }
+
+ [HttpPost]
+ [Authorize] // cualquier usuario autenticado puede crear
+ public async Task<IActionResult> Crear([FromBody] PedidoDTO dto)
+ {
+ try
+ {
+ var id = await _crear.EjecutarAsync(dto);
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(id);
+ await _hub.Clients.Group("cocina").SendAsync("PedidoCreado", new { pedido!.Id, pedido.Mesa, pedido.Estado, pedido.Fecha, pedido.Total });
+ await _hub.Clients.Group($"mesa-{pedido.Mesa}").SendAsync("PedidoActualizado", new { pedido.Id, pedido.Estado, pedido.Total });
+ return Ok(new { pedidoId = id });
+ }
+ catch(Exception ex){ return BadRequest(new { mensaje = ex.Message }); }
+ }
+
+ [HttpGet]
+ [Authorize(Roles="administrador,cocina,mesero")]
+ public async Task<IActionResult> Listar()
+ => Ok(await _listar.EjecutarAsync());
+
+ [HttpGet("cocina")]
+ public async Task<IActionResult> ListarParaCocina()
+ {
+ var pedidos = await _listar.EjecutarAsync();
+ return Ok(pedidos);
+ }
+
+ [HttpGet("{id:guid}")]
+ [Authorize]
+ public async Task<IActionResult> Obtener(Guid id)
+ {
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(id);
+ if(pedido==null) return NotFound();
+ return Ok(pedido);
+ }
+
+ [HttpPut("{id:guid}/estado")]
+ [Authorize(Roles="administrador,cocina")]
+ public async Task<IActionResult> ActualizarEstado(Guid id, [FromQuery] EstadoPedido estado)
+ {
+ try
+ {
+ await _actualizarEstado.EjecutarAsync(id, estado);
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(id);
+ await _hub.Clients.Group("cocina").SendAsync("PedidoEstado", new { pedido!.Id, pedido.Estado });
+ await _hub.Clients.Group($"mesa-{pedido.Mesa}").SendAsync("PedidoEstado", new { pedido.Id, pedido.Estado });
+ return Ok(new { mensaje = "Estado actualizado" });
+ }
+ catch(Exception ex){ return BadRequest(new { mensaje = ex.Message }); }
+ }
+
+ [HttpDelete("{id:guid}")]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> Eliminar(Guid id)
+ {
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(id);
+ if(pedido==null) return NotFound();
+ if(pedido.Estado != EstadoPedido.CANCELADO)
+ {
+ pedido.Estado = EstadoPedido.CANCELADO;
+ pedido.HistorialEstados.Add(new PedidoEstadoHistorial{ Id=Guid.NewGuid(), PedidoId=pedido.Id, Estado=pedido.Estado, CambioEn=DateTime.UtcNow});
+ await _pedidoRepo.ActualizarAsync(pedido);
+ await _hub.Clients.Group("cocina").SendAsync("PedidoEstado", new { pedido.Id, pedido.Estado });
+ await _hub.Clients.Group($"mesa-{pedido.Mesa}").SendAsync("PedidoEstado", new { pedido.Id, pedido.Estado });
+ }
+ return NoContent();
+ }
+
+ [HttpPost("{id:guid}/pago")]
+ [Authorize(Roles="administrador,mesero")]
+ public async Task<IActionResult> RegistrarPago(Guid id, [FromBody] PagoDTO dto)
+ {
+ if (id != dto.PedidoId) return BadRequest(new { mensaje = "Id mismatch" });
+ try
+ {
+ var pagoId = await _registrarPago.EjecutarAsync(dto);
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(id);
+ await _hub.Clients.Group($"mesa-{pedido!.Mesa}").SendAsync("PedidoPago", new { pedido.Id, pagoId });
+ return Ok(new { pagoId });
+ }
+ catch(Exception ex){ return BadRequest(new { mensaje = ex.Message }); }
+ }
+ }
+}

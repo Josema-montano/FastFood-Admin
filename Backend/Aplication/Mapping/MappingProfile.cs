@@ -1,0 +1,16 @@
+using AutoMapper;
+using Domain.Entities;
+using Aplication.DTOs;
+
+namespace Aplication.Mapping
+{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            CreateMap<Producto, ProductoDTO>().ReverseMap();
+            CreateMap<Inventario, InventarioDTO>().ReverseMap();
+            CreateMap<Usuario, UsuarioDTO>().ReverseMap();
+        }
+    }
+}

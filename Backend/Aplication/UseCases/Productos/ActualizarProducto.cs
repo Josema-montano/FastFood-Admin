@@ -1,0 +1,32 @@
+using Aplication.DTOs;
+using Domain.Entities;
+using Domain.Interfaces;
+using System.Threading.Tasks;
+using System;
+
+namespace Aplication.UseCases.Productos
+{
+ public class ActualizarProducto
+ {
+ private readonly IProductoRepositorio _repo;
+ public ActualizarProducto(IProductoRepositorio repo){ _repo = repo; }
+ public async Task EjecutarAsync(ProductoDTO dto)
+ {
+ if(dto.Id<=0) throw new ArgumentException("Id inválido");
+ 
+ var producto = new Producto
+ {
+ Id = dto.Id,
+ Nombre = dto.Nombre,
+ Descripcion = dto.Descripcion,
+ Precio = dto.Precio,
+ Categoria = dto.Categoria,
+ Activo = dto.Activo,
+ ImagenUrl = dto.ImagenUrl,
+ StockMinimo = dto.StockMinimo
+ };
+
+ await _repo.ActualizarAsync(producto);
+ }
+ }
+}

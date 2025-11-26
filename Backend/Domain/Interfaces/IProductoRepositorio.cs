@@ -1,0 +1,15 @@
+using Domain.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Domain.Interfaces
+{
+ public interface IProductoRepositorio
+ {
+ Task<IEnumerable<Producto>> ListarAsync();
+ Task<Producto?> ObtenerPorIdAsync(int id);
+ Task CrearAsync(Producto producto);
+ Task ActualizarAsync(Producto producto);
+ Task EliminarAsync(int id);
+ }
+}

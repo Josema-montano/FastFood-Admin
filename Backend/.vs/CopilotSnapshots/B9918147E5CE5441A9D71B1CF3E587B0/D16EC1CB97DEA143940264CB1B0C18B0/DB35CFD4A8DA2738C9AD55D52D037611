@@ -1,0 +1,13 @@
+﻿using AutoMapper;
+
+namespace Aplication.Mapping
+{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            // Refactor: se eliminaron mapeos antiguos (clientes, proveedores, promociones, ventas, movimientos).
+            // Mantener clase vacía para futuras expansiones (por ejemplo, DTOs de menú o reportes).
+        }
+    }
+}

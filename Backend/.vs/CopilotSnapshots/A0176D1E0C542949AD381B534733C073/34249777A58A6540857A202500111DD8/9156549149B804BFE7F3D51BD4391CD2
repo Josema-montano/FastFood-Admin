@@ -1,0 +1,28 @@
+﻿using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Productos
+{
+    public class EliminarProducto
+    {
+private readonly IProductoRepositorio _productoRepositorio;
+
+        public EliminarProducto(IProductoRepositorio productoRepositorio)
+     {
+     _productoRepositorio = productoRepositorio;
+        }
+
+        public async Task EjecutarAsync(Guid productoId)
+     {
+ if (productoId == Guid.Empty)
+   throw new ArgumentException("El ID del producto es obligatorio.");
+
+        var producto = await _productoRepositorio.ObtenerPorIdAsync(productoId);
+     if (producto is null)
+       throw new ArgumentException("El producto no existe.");
+
+    await _productoRepositorio.EliminarAsync(productoId);
+     }
+    }
+}

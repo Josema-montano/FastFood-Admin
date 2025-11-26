@@ -1,0 +1,48 @@
+using Aplication.DTOs;
+using Aplication.UseCases.Inventarios;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/inventarios")]
+ public class InventariosController : ControllerBase
+ {
+ private readonly CrearInventario _crear;
+ private readonly ActualizarInventario _actualizar;
+ private readonly ObtenerInventarioPorProducto _obtenerPorProducto;
+ private readonly ListarInventarios _listar;
+ public InventariosController(CrearInventario crear, ActualizarInventario actualizar, ObtenerInventarioPorProducto obtenerPorProducto, ListarInventarios listar)
+ { _crear = crear; _actualizar = actualizar; _obtenerPorProducto = obtenerPorProducto; _listar = listar; }
+
+ [HttpGet]
+ public async Task<IActionResult> Listar() => Ok(await _listar.EjecutarAsync());
+
+ [HttpGet("producto/{productoId:int}")]
+ public async Task<IActionResult> ObtenerPorProducto(int productoId)
+ {
+ var inv = await _obtenerPorProducto.EjecutarAsync(productoId);
+ if(inv==null) return NotFound();
+ return Ok(inv);
+ }
+
+ [HttpPost]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> Crear([FromBody] InventarioDTO dto)
+ {
+ var id = await _crear.EjecutarAsync(dto);
+ return CreatedAtAction(nameof(ObtenerPorProducto), new { productoId = dto.ProductoId }, new { id });
+ }
+
+ [HttpPut("{id:guid}")]
+ [Authorize(Roles="administrador")]
+ public async Task<IActionResult> Actualizar(Guid id, [FromBody] InventarioDTO dto)
+ {
+ if(id!=dto.Id) return BadRequest("Id mismatch");
+ await _actualizar.EjecutarAsync(dto);
+ return Ok();
+ }
+ }
+}

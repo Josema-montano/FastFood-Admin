@@ -1,0 +1,14 @@
+﻿using Domain.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Domain.Interfaces
+{
+ public interface IVentaRepositorio
+ {
+ Task RegistrarAsync(Venta venta);
+ Task<IEnumerable<Venta>> ListarAsync();
+ Task<Venta?> ObtenerPorIdAsync(int id);
+ Task CancelarAsync(int ventaId, string motivo);
+ }
+}

@@ -1,0 +1,9 @@
+﻿namespace Domain.Entities
+{
+ public enum EstadoPedido
+ {
+ PENDIENTE,
+ EN_PREPARACION,
+ LISTO
+ }
+}

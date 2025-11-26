@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace Aplication.DTOs
+{
+ public class PedidoDTO
+ {
+ [Required]
+ public List<DetallePedidoDTO> Detalles { get; set; } = new();
+ public string? UsuarioId { get; set; }
+ public string Mesa { get; set; } = string.Empty;
+ public string? Notas { get; set; }
+ }
+
+ public class DetallePedidoDTO
+ {
+ [Required]
+ public int ProductoId { get; set; }
+ [Range(1,int.MaxValue)]
+ public int Cantidad { get; set; }
+ }
+}

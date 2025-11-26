@@ -1,0 +1,62 @@
+﻿using Aplication.DTOs;
+using Aplication.UseCases.Devoluciones;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DevolucionesController : ControllerBase
+    {
+      private readonly RegistrarDevolucion _registrarDevolucion;
+        private readonly ObtenerDevolucionPorId _obtenerDevolucionPorId;
+        private readonly ListarDevoluciones _listarDevoluciones;
+
+   public DevolucionesController(
+ RegistrarDevolucion registrarDevolucion,
+ ObtenerDevolucionPorId obtenerDevolucionPorId,
+  ListarDevoluciones listarDevoluciones)
+     {
+ _registrarDevolucion = registrarDevolucion;
+   _obtenerDevolucionPorId = obtenerDevolucionPorId;
+   _listarDevoluciones = listarDevoluciones;
+   }
+
+ [HttpGet]
+     public async Task<IActionResult> GetAll()
+   {
+       var devoluciones = await _listarDevoluciones.EjecutarAsync();
+
+     if (!devoluciones.Any())
+         return NotFound(new { mensaje = "No hay devoluciones registradas." });
+
+      return Ok(devoluciones);
+        }
+
+ [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+     {
+  var devolucion = await _obtenerDevolucionPorId.EjecutarAsync(id);
+  if (devolucion == null)
+       return NotFound(new { mensaje = "Devolución no encontrada." });
+
+     return Ok(devolucion);
+   }
+
+   [HttpPost]
+   public async Task<IActionResult> Create([FromBody] DevolucionDTO devolucionDTO)
+        {
+ if (!ModelState.IsValid)
+   return BadRequest(ModelState);
+
+   var devolucionId = await _registrarDevolucion.EjecutarAsync(
+ devolucionDTO.ProductoId, 
+     devolucionDTO.Cantidad, 
+   devolucionDTO.Motivo, 
+       devolucionDTO.ClienteId);
+      
+    var devolucionCreada = await _obtenerDevolucionPorId.EjecutarAsync(devolucionId);
+    return CreatedAtAction(nameof(GetById), new { id = devolucionId }, devolucionCreada);
+ }
+    }
+}

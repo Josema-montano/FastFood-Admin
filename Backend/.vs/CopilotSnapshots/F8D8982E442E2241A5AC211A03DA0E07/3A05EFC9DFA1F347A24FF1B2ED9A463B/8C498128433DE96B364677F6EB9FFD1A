@@ -1,0 +1,27 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Infraestructure.Repositorios
+{
+ public class VentaRepositorio : IVentaRepositorio
+ {
+ private readonly AppDbContext _context;
+ public VentaRepositorio(AppDbContext context) { _context = context; }
+
+ public async Task RegistrarAsync(Venta venta)
+ {
+ _context.Ventas.Add(venta);
+ await _context.SaveChangesAsync();
+ }
+
+ public async Task<IEnumerable<Venta>> ListarAsync()
+ => await _context.Ventas.Include(v => v.Detalles).ThenInclude(d => d.Producto).Include(v => v.Cliente).AsNoTracking().ToListAsync();
+
+ public async Task<Venta?> ObtenerPorIdAsync(int id)
+ => await _context.Ventas.Include(v => v.Detalles).ThenInclude(d => d.Producto).Include(v => v.Cliente).FirstOrDefaultAsync(v => v.Id == id);
+ }
+}

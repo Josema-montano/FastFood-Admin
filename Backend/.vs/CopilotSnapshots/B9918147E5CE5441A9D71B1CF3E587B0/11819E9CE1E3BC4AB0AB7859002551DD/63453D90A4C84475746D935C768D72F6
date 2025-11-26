@@ -1,0 +1,39 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Proveedores
+{
+  public class CrearProveedor
+    {
+        private readonly IProveedorRepositorio _proveedorRepositorio;
+
+        public CrearProveedor(IProveedorRepositorio proveedorRepositorio)
+        {
+   _proveedorRepositorio = proveedorRepositorio;
+        }
+
+        public async Task EjecutarAsync(Proveedor proveedor)
+        {
+            // Validaciones de negocio
+      ValidarProveedor(proveedor);
+
+  // No es necesario asignar ID manualmente, Entity Framework lo genera automáticamente
+            
+            await _proveedorRepositorio.CrearAsync(proveedor);
+        }
+
+        private void ValidarProveedor(Proveedor proveedor)
+        {
+    if (proveedor is null)
+        throw new ArgumentNullException(nameof(proveedor));
+
+     if (string.IsNullOrWhiteSpace(proveedor.Nombre))
+             throw new ArgumentException("El nombre es obligatorio.");
+
+        if (string.IsNullOrWhiteSpace(proveedor.Ruc))
+                throw new ArgumentException("El RUC es obligatorio.");
+        }
+    }
+}

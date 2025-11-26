@@ -1,0 +1,76 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Reportes
+{
+  public class GenerarReportePagos
+    {
+        private readonly IPagoRepositorio _pagoRepo;
+
+        public GenerarReportePagos(IPagoRepositorio pagoRepo)
+{
+       _pagoRepo = pagoRepo;
+        }
+
+     public async Task<Reporte> EjecutarAsync(string generadoPor, DateTime? fechaInicio = null, DateTime? fechaFin = null, bool soloRealizados = true)
+        {
+    var inicio = fechaInicio ?? DateTime.Today.AddDays(-30);
+     var fin = fechaFin ?? DateTime.Today.AddDays(1);
+
+    var pagos = soloRealizados 
+  ? await _pagoRepo.ListarPagosRealizadosAsync()
+      : await _pagoRepo.ListarPorFechasAsync(inicio, fin);
+
+       var pagosFiltrados = pagos.Where(p => p.Fecha >= inicio && p.Fecha <= fin).ToList();
+
+      var totalPagos = pagosFiltrados.Sum(p => p.Monto);
+    var cantidadPagos = pagosFiltrados.Count;
+       var pagosPorMetodo = pagosFiltrados
+       .GroupBy(p => p.Metodo)
+      .Select(g => $"{g.Key}: {g.Count()} pagos (S/ {g.Sum(p => p.Monto):F2})")
+            .ToList();
+
+            var pagosPorEstado = pagosFiltrados
+   .GroupBy(p => p.Estado)
+ .Select(g => $"{g.Key}: {g.Count()} pagos (S/ {g.Sum(p => p.Monto):F2})")
+ .ToList();
+
+       var contenido = $@"
+===== REPORTE DE PAGOS =====
+Período: {inicio:dd/MM/yyyy} - {fin:dd/MM/yyyy}
+Tipo: {(soloRealizados ? "Solo pagos realizados" : "Todos los pagos")}
+Fecha de generación: {DateTime.Now:dd/MM/yyyy HH:mm}
+Generado por: {generadoPor}
+
+--- RESUMEN GENERAL ---
+Total de pagos: {cantidadPagos}
+Monto total: S/ {totalPagos:F2}
+Promedio por pago: S/ {(cantidadPagos > 0 ? totalPagos / cantidadPagos : 0):F2}
+
+--- PAGOS POR MÉTODO ---
+{string.Join("\n", pagosPorMetodo)}
+
+--- PAGOS POR ESTADO ---
+{string.Join("\n", pagosPorEstado)}
+
+--- DETALLE DE PAGOS ---
+{string.Join("\n", pagosFiltrados.Select(p => 
+              $"[{p.Fecha:dd/MM/yyyy HH:mm}] Mesa {p.Pedido?.NumeroMesa ?? 0} - {p.Metodo} - S/ {p.Monto:F2} - {p.Estado}"))}
+
+============================
+";
+
+            return new Reporte
+   {
+       Id = Guid.NewGuid(),
+ Tipo = "Pagos",
+      Contenido = contenido,
+   FechaGeneracion = DateTime.Now,
+          GeneradoPor = generadoPor
+  };
+        }
+    }
+}

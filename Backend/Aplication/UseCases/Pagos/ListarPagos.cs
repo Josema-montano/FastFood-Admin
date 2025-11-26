@@ -1,0 +1,87 @@
+using Aplication.DTOs;
+using Domain.Interfaces;
+using Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Pagos
+{
+    public class ListarPagos
+    {
+      private readonly IPagoRepositorio _repo;
+
+        public ListarPagos(IPagoRepositorio repo)
+  {
+     _repo = repo;
+      }
+
+   public async Task<IEnumerable<PagoDetalleDTO>> EjecutarAsync()
+   {
+  var pagos = await _repo.ListarAsync();
+   return pagos.Select(p => new PagoDetalleDTO
+  {
+     Id = p.Id,
+   PedidoId = p.PedidoId,
+      Monto = p.Monto,
+  Metodo = p.Metodo,
+      Estado = p.Estado.ToString(),
+Fecha = p.Fecha,
+           NumeroMesa = p.Pedido != null && int.TryParse(p.Pedido.Mesa, out var mesa) ? mesa : (int?)null,
+ TotalPedido = p.Pedido?.Total
+   });
+        }
+
+        public async Task<IEnumerable<PagoDetalleDTO>> ListarPorEstadoAsync(string estado)
+        {
+      if (!Enum.TryParse<EstadoPago>(estado, true, out var estadoPago))
+     throw new ArgumentException("Estado de pago inválido");
+
+    var pagos = await _repo.ListarPorEstadoAsync(estadoPago);
+      return pagos.Select(p => new PagoDetalleDTO
+ {
+      Id = p.Id,
+       PedidoId = p.PedidoId,
+     Monto = p.Monto,
+   Metodo = p.Metodo,
+      Estado = p.Estado.ToString(),
+   Fecha = p.Fecha,
+          NumeroMesa = p.Pedido != null && int.TryParse(p.Pedido.Mesa, out var mesa) ? mesa : (int?)null,
+      TotalPedido = p.Pedido?.Total
+            });
+        }
+
+        public async Task<IEnumerable<PagoDetalleDTO>> ListarPorFechasAsync(DateTime fechaInicio, DateTime fechaFin)
+        {
+      var pagos = await _repo.ListarPorFechasAsync(fechaInicio, fechaFin);
+     return pagos.Select(p => new PagoDetalleDTO
+       {
+   Id = p.Id,
+  PedidoId = p.PedidoId,
+       Monto = p.Monto,
+     Metodo = p.Metodo,
+     Estado = p.Estado.ToString(),
+     Fecha = p.Fecha,
+           NumeroMesa = p.Pedido != null && int.TryParse(p.Pedido.Mesa, out var mesa) ? mesa : (int?)null,
+        TotalPedido = p.Pedido?.Total
+ });
+   }
+
+        public async Task<IEnumerable<PagoDetalleDTO>> ListarPagosRealizadosAsync()
+   {
+  var pagos = await _repo.ListarPagosRealizadosAsync();
+      return pagos.Select(p => new PagoDetalleDTO
+            {
+     Id = p.Id,
+            PedidoId = p.PedidoId,
+       Monto = p.Monto,
+Metodo = p.Metodo,
+Estado = p.Estado.ToString(),
+ Fecha = p.Fecha,
+ NumeroMesa = p.Pedido != null && int.TryParse(p.Pedido.Mesa, out var mesa) ? mesa : (int?)null,
+      TotalPedido = p.Pedido?.Total
+            });
+ }
+    }
+}

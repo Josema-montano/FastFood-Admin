@@ -1,0 +1,26 @@
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+
+namespace API.Models
+{
+    public class ProductoCrearConImagenRequest
+    {
+        [Required(ErrorMessage = "El nombre es requerido")]
+        public string Nombre { get; set; } = string.Empty;
+     
+        public string Descripcion { get; set; } = string.Empty;
+     
+        [Required(ErrorMessage = "El precio es requerido")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El precio debe ser mayor a 0")]
+        public decimal Precio { get; set; }
+  
+        public string Categoria { get; set; } = string.Empty;
+    
+        public bool Activo { get; set; } = true;
+     
+        [Range(0, int.MaxValue, ErrorMessage = "El stock mínimo debe ser mayor o igual a 0")]
+        public int StockMinimo { get; set; }
+     
+        public IFormFile? Imagen { get; set; }
+    }
+}

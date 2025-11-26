@@ -1,0 +1,90 @@
+﻿using Aplication.Mapping;
+using Aplication.UseCases.Pedidos;
+using Aplication.UseCases.Productos;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Infraestructure.Repositorios;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+// ========== CONFIGURAR CORS ==========
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "http://localhost:5174",
+            "http://localhost:3000"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials();
+    });
+});
+// =====================================
+
+// Configurar DbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Configurar AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// Repositorios mínimos del nuevo dominio
+builder.Services.AddScoped<IProductoRepositorio, ProductoRepositorio>();
+builder.Services.AddScoped<IInventarioRepositorio, InventarioRepositorio>();
+builder.Services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
+builder.Services.AddScoped<IPagoRepositorio, PagoRepositorio>();
+
+// Casos de uso pedidos
+builder.Services.AddScoped<CrearPedido>();
+builder.Services.AddScoped<ListarPedidos>();
+builder.Services.AddScoped<ActualizarEstadoPedido>();
+builder.Services.AddScoped<RegistrarPagoPedido>();
+
+// Casos de uso productos
+builder.Services.AddScoped<CrearProducto>();
+builder.Services.AddScoped<ActualizarProducto>();
+builder.Services.AddScoped<EliminarProducto>();
+builder.Services.AddScoped<ObtenerProductoPorId>();
+builder.Services.AddScoped<ListarProductos>();
+
+// Configurar JSON para ignorar ciclos de referencia
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+// ========== USAR CORS (ANTES DE UseHttpsRedirection) ==========
+app.UseCors("AllowFrontend");
+// ===============================================================
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles(); // Habilitar archivos estáticos para servir imágenes
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

@@ -1,0 +1,19 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Inventario
+{
+ public class GenerarAlertasStockMinimo
+ {
+ private readonly IProductoRepositorio _productoRepo;
+ public GenerarAlertasStockMinimo(IProductoRepositorio productoRepo){ _productoRepo=productoRepo; }
+ public async Task<IEnumerable<Producto>> EjecutarAsync()
+ {
+ var productos = await _productoRepo.ListarAsync();
+ return productos.Where(p=>p.Stock<=p.StockMinimo).ToList();
+ }
+ }
+}

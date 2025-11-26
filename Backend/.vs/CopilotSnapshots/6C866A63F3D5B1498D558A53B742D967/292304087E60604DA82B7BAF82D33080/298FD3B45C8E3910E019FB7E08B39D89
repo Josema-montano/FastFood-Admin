@@ -1,0 +1,289 @@
+﻿### Variables
+@baseUrl = https://localhost:7001
+@contentType = application/json
+
+##############################################
+# CLIENTES
+##############################################
+
+### Listar todos los clientes
+GET {{baseUrl}}/api/clientes
+
+### Obtener cliente por ID
+GET {{baseUrl}}/api/clientes/00000000-0000-0000-0000-000000000001
+
+### Crear nuevo cliente
+POST {{baseUrl}}/api/clientes
+Content-Type: {{contentType}}
+
+{
+  "nombres": "Juan",
+  "apellidos": "Pérez García",
+  "documento": "12345678",
+  "telefono": "987654321",
+  "email": "juan.perez@example.com",
+  "direccion": "Av. Principal 123, Lima"
+}
+
+### Actualizar cliente
+PUT {{baseUrl}}/api/clientes/00000000-0000-0000-0000-000000000001
+Content-Type: {{contentType}}
+
+{
+  "id": "00000000-0000-0000-0000-000000000001",
+  "nombres": "Juan Carlos",
+  "apellidos": "Pérez García",
+  "documento": "12345678",
+  "telefono": "987654321",
+  "email": "juancarlos.perez@example.com",
+  "direccion": "Av. Principal 123, Lima"
+}
+
+### Eliminar cliente
+DELETE {{baseUrl}}/api/clientes/00000000-0000-0000-0000-000000000001
+
+##############################################
+# PROVEEDORES
+##############################################
+
+### Listar todos los proveedores
+GET {{baseUrl}}/api/proveedores
+
+### Obtener proveedor por ID
+GET {{baseUrl}}/api/proveedores/00000000-0000-0000-0000-000000000001
+
+### Crear nuevo proveedor
+POST {{baseUrl}}/api/proveedores
+Content-Type: {{contentType}}
+
+{
+  "nombre": "Distribuidora ABC S.A.C.",
+  "ruc": "20123456789",
+  "telefono": "014567890",
+  "email": "ventas@distribuidoraabc.com",
+  "direccion": "Av. Industrial 456, Callao"
+}
+
+### Actualizar proveedor
+PUT {{baseUrl}}/api/proveedores/00000000-0000-0000-0000-000000000001
+Content-Type: {{contentType}}
+
+{
+  "id": "00000000-0000-0000-0000-000000000001",
+  "nombre": "Distribuidora ABC S.A.C.",
+  "ruc": "20123456789",
+  "telefono": "014567890",
+  "email": "contacto@distribuidoraabc.com",
+  "direccion": "Av. Industrial 456, Callao"
+}
+
+### Eliminar proveedor
+DELETE {{baseUrl}}/api/proveedores/00000000-0000-0000-0000-000000000001
+
+##############################################
+# PRODUCTOS
+##############################################
+
+### Listar todos los productos
+GET {{baseUrl}}/api/productos
+
+### Obtener producto por ID
+GET {{baseUrl}}/api/productos/00000000-0000-0000-0000-000000000001
+
+### Obtener producto por código
+GET {{baseUrl}}/api/productos/codigo/PROD001
+
+### Crear nuevo producto
+POST {{baseUrl}}/api/productos
+Content-Type: {{contentType}}
+
+{
+  "codigo": "PROD001",
+  "nombre": "Laptop HP Pavilion 15",
+  "descripcion": "Laptop HP 15.6 pulgadas, Intel Core i5, 8GB RAM, 256GB SSD",
+  "precioCompra": 1500.00,
+  "precioVenta": 2000.00,
+  "stock": 10,
+  "stockMinimo": 5,
+  "proveedorId": "00000000-0000-0000-0000-000000000001"
+}
+
+### Actualizar producto
+PUT {{baseUrl}}/api/productos/00000000-0000-0000-0000-000000000001
+Content-Type: {{contentType}}
+
+{
+  "id": "00000000-0000-0000-0000-000000000001",
+  "codigo": "PROD001",
+  "nombre": "Laptop HP Pavilion 15",
+  "descripcion": "Laptop HP 15.6 pulgadas, Intel Core i5, 8GB RAM, 512GB SSD",
+  "precioCompra": 1600.00,
+  "precioVenta": 2100.00,
+  "stock": 15,
+  "stockMinimo": 5,
+  "proveedorId": "00000000-0000-0000-0000-000000000001"
+}
+
+### Eliminar producto
+DELETE {{baseUrl}}/api/productos/00000000-0000-0000-0000-000000000001
+
+##############################################
+# PROMOCIONES
+##############################################
+
+### Listar todas las promociones
+GET {{baseUrl}}/api/promociones
+
+### Obtener promoción por ID
+GET {{baseUrl}}/api/promociones/00000000-0000-0000-0000-000000000001
+
+### Crear nueva promoción
+POST {{baseUrl}}/api/promociones
+Content-Type: {{contentType}}
+
+{
+  "nombre": "Cyber Monday 2024",
+  "descripcion": "Descuentos especiales por Cyber Monday en productos seleccionados",
+  "fechaInicio": "2024-11-01T00:00:00",
+  "fechaFin": "2024-11-30T23:59:59",
+  "activa": true,
+  "productos": [
+    {
+      "productoId": "00000000-0000-0000-0000-000000000001",
+ "descuentoPorcentaje": 20.0
+    },
+    {
+      "productoId": "00000000-0000-0000-0000-000000000002",
+      "descuentoPorcentaje": 15.0
+    }
+  ]
+}
+
+### Actualizar promoción
+PUT {{baseUrl}}/api/promociones/00000000-0000-0000-0000-000000000001
+Content-Type: {{contentType}}
+
+{
+  "id": "00000000-0000-0000-0000-000000000001",
+  "nombre": "Cyber Monday 2024 - Extendido",
+  "descripcion": "Descuentos especiales extendidos",
+  "fechaInicio": "2024-11-01T00:00:00",
+  "fechaFin": "2024-12-15T23:59:59",
+  "activa": true,
+  "productos": [
+  {
+      "productoId": "00000000-0000-0000-0000-000000000001",
+      "descuentoPorcentaje": 25.0
+    }
+  ]
+}
+
+### Eliminar promoción
+DELETE {{baseUrl}}/api/promociones/00000000-0000-0000-0000-000000000001
+
+##############################################
+# DEVOLUCIONES
+##############################################
+
+### Listar todas las devoluciones
+GET {{baseUrl}}/api/devoluciones
+
+### Obtener devolución por ID
+GET {{baseUrl}}/api/devoluciones/00000000-0000-0000-0000-000000000001
+
+### Registrar nueva devolución
+POST {{baseUrl}}/api/devoluciones
+Content-Type: {{contentType}}
+
+{
+  "productoId": "00000000-0000-0000-0000-000000000001",
+  "clienteId": "00000000-0000-0000-0000-000000000001",
+  "cantidad": 2,
+  "motivo": "Producto defectuoso - pantalla no enciende"
+}
+
+### Registrar devolución sin cliente (devolución general)
+POST {{baseUrl}}/api/devoluciones
+Content-Type: {{contentType}}
+
+{
+  "productoId": "00000000-0000-0000-0000-000000000001",
+  "cantidad": 1,
+  "motivo": "Devolución de inventario - mercancía dañada en almacén"
+}
+
+##############################################
+# INVENTARIO
+##############################################
+
+### Listar movimientos de un producto
+GET {{baseUrl}}/api/inventario/movimientos/00000000-0000-0000-0000-000000000001
+
+### Registrar ingreso de inventario
+POST {{baseUrl}}/api/inventario/actualizar
+Content-Type: {{contentType}}
+
+{
+  "productoId": "00000000-0000-0000-0000-000000000001",
+  "cantidad": 50,
+  "tipo": "Ingreso",
+  "motivo": "Compra a proveedor - Orden de compra #001"
+}
+
+### Registrar egreso de inventario
+POST {{baseUrl}}/api/inventario/actualizar
+Content-Type: {{contentType}}
+
+{
+  "productoId": "00000000-0000-0000-0000-000000000001",
+  "cantidad": 5,
+  "tipo": "Egreso",
+  "motivo": "Venta - Factura #001"
+}
+
+### Obtener alertas de stock mínimo
+GET {{baseUrl}}/api/inventario/alertas
+
+##############################################
+# HEALTH CHECK
+##############################################
+
+### Verificar que la API está funcionando
+GET {{baseUrl}}/api/productos
+
+##############################################
+# USUARIOS
+##############################################
+
+### Listar todos los usuarios (requiere rol administrador)
+GET {{baseUrl}}/api/usuarios
+Authorization: Bearer {{token}}
+
+### Obtener usuario por ID (requiere rol administrador)
+GET {{baseUrl}}/api/usuarios/00000000-0000-0000-0000-000000000001
+Authorization: Bearer {{token}}
+
+### Actualizar usuario (requiere rol administrador)
+PUT {{baseUrl}}/api/usuarios/00000000-0000-0000-0000-000000000001
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "nombre": "Juan Carlos Updated",
+  "email": "juancarlos.updated@example.com",
+  "rol": "administrador",
+  "telefono": "987654321",
+  "nuevoPassword": "NuevaPassword123"
+}
+
+### Actualizar usuario sin cambiar contraseña
+PUT {{baseUrl}}/api/usuarios/00000000-0000-0000-0000-000000000001
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "nombre": "Juan Carlos",
+"email": "juancarlos@example.com",
+  "rol": "mesero",
+  "telefono": "987654321"
+}

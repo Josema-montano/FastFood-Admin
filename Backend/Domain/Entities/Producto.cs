@@ -1,0 +1,24 @@
+using System;
+
+namespace Domain.Entities
+{
+ public class Producto
+ {
+ public int Id { get; set; }
+ public string Nombre { get; set; } = string.Empty;
+ public string Descripcion { get; set; } = string.Empty;
+ public decimal Precio { get; set; }
+ public string Categoria { get; set; } = string.Empty;
+ public bool Activo { get; set; } = true;
+ public string? ImagenUrl { get; set; }
+ public int StockMinimo { get; set; } // nuevo campo para alertas
+ // Métodos de dominio básicos
+ public void ActualizarPrecio(decimal nuevoPrecio)
+ {
+ if (nuevoPrecio <=0) throw new ArgumentException("Precio inválido");
+ Precio = nuevoPrecio;
+ }
+ public void Desactivar() => Activo = false;
+ public void Activar() => Activo = true;
+ }
+}

@@ -1,0 +1,62 @@
+﻿using Aplication.DTOs;
+using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+
+namespace Aplication.UseCases.POS
+{
+ public class RegistrarVenta
+ {
+ private readonly IVentaRepositorio _ventaRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ private readonly IMovimientoInventarioRepositorio _movimientoRepo;
+ public RegistrarVenta(IVentaRepositorio ventaRepo, IProductoRepositorio productoRepo, IMovimientoInventarioRepositorio movimientoRepo)
+ {
+ _ventaRepo = ventaRepo;
+ _productoRepo = productoRepo;
+ _movimientoRepo = movimientoRepo;
+ }
+
+ public async Task<int> EjecutarAsync(VentaDTO ventaDTO)
+ {
+ var venta = new Venta
+ {
+ Fecha = DateTime.UtcNow,
+ ClienteId = ventaDTO.ClienteId,
+ Detalles = new List<DetalleVenta>()
+ };
+ decimal total =0;
+ foreach (var det in ventaDTO.Detalles)
+ {
+ var producto = await _productoRepo.ObtenerPorIdAsync(det.ProductoId) ?? throw new ArgumentException($"Producto {det.ProductoId} no encontrado");
+ if (producto.Stock < det.Cantidad) throw new InvalidOperationException($"Stock insuficiente para producto {producto.Nombre}");
+ producto.Stock -= det.Cantidad;
+ await _productoRepo.ActualizarAsync(producto);
+ var subtotal = det.Cantidad * det.PrecioUnitario;
+ venta.Detalles.Add(new DetalleVenta
+ {
+ ProductoId = det.ProductoId,
+ Cantidad = det.Cantidad,
+ PrecioUnitario = det.PrecioUnitario,
+ Subtotal = subtotal
+ });
+ total += subtotal;
+ // Registrar movimiento inventario
+ await _movimientoRepo.RegistrarAsync(new MovimientoInventario
+ {
+ ProductoId = det.ProductoId,
+ Fecha = DateTime.UtcNow,
+ Cantidad = det.Cantidad,
+ Tipo = TipoMovimientoInventario.Egreso,
+ Motivo = "Venta POS",
+ ReferenciaId = null
+ });
+ }
+ venta.Total = total;
+ await _ventaRepo.RegistrarAsync(venta);
+ return venta.Id;
+ }
+ }
+}

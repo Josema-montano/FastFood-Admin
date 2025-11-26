@@ -1,0 +1,16 @@
+﻿using Aplication.UseCases.Inventarios;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/alertas")]
+ public class AlertasController : ControllerBase
+ {
+ private readonly GenerarAlertasStockMinimo _generar;
+ public AlertasController(GenerarAlertasStockMinimo generar){ _generar = generar; }
+ [HttpGet("stock-bajo")]
+ public async Task<IActionResult> StockBajo() => Ok(await _generar.EjecutarAsync());
+ }
+}

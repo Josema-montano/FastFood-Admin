@@ -1,0 +1,18 @@
+﻿using Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Domain.Interfaces
+{
+ public interface IProductoRepositorio
+ {
+ Task<IEnumerable<Producto>> ListarAsync();
+ Task<IEnumerable<Producto>> ListarConProveedorAsync();
+ Task<Producto?> ObtenerPorIdAsync(int id);
+ Task<Producto?> ObtenerPorCodigoAsync(string codigo);
+ Task CrearAsync(Producto producto);
+ Task ActualizarAsync(Producto producto);
+ Task EliminarAsync(int id);
+ }
+}

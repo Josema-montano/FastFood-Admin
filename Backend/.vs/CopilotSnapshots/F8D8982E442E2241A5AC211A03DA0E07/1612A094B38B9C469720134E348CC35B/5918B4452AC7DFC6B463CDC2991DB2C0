@@ -1,0 +1,25 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Productos
+{
+    public class ListarProductos
+    {
+    private readonly IProductoRepositorio _productoRepositorio;
+
+  public ListarProductos(IProductoRepositorio productoRepositorio)
+        {
+     _productoRepositorio = productoRepositorio;
+   }
+
+        public async Task<IEnumerable<Producto>> EjecutarAsync(bool incluirProveedor = false)
+ {
+   if (incluirProveedor)
+      return await _productoRepositorio.ListarConProveedorAsync();
+   
+   return await _productoRepositorio.ListarAsync();
+  }
+    }
+}

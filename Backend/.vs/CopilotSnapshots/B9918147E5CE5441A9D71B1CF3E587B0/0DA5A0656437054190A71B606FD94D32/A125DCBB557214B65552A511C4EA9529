@@ -1,0 +1,20 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Pedidos
+{
+ public class ActualizarEstadoPedido
+ {
+ private readonly IPedidoRepositorio _pedidoRepo;
+ public ActualizarEstadoPedido(IPedidoRepositorio pedidoRepo){ _pedidoRepo = pedidoRepo; }
+
+ public async Task EjecutarAsync(Guid pedidoId, EstadoPedido nuevoEstado)
+ {
+ var pedido = await _pedidoRepo.ObtenerPorIdAsync(pedidoId) ?? throw new ArgumentException("Pedido no encontrado");
+ pedido.Estado = nuevoEstado;
+ await _pedidoRepo.ActualizarAsync(pedido);
+ }
+ }
+}

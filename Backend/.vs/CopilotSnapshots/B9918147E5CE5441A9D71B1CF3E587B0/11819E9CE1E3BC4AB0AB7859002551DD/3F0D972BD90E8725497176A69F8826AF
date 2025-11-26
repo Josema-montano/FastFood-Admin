@@ -1,0 +1,38 @@
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Promociones
+{
+ public class GestionarPromocion
+ {
+ private readonly IPromocionRepositorio _promoRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ public GestionarPromocion(IPromocionRepositorio promoRepo, IProductoRepositorio productoRepo){ _promoRepo=promoRepo; _productoRepo=productoRepo; }
+
+ public async Task<int> CrearAsync(string nombre, string descripcion, DateTime inicio, DateTime fin, IEnumerable<(int productoId, decimal descuento)> items)
+ {
+ if (string.IsNullOrWhiteSpace(nombre)) throw new ArgumentException("Nombre requerido");
+ if (inicio>=fin) throw new ArgumentException("Rango de fechas inválido");
+ var promo = new Promocion{ Nombre=nombre, Descripcion=descripcion, FechaInicio=inicio, FechaFin=fin, Activa=true };
+ foreach (var it in items)
+ {
+ var prod = await _productoRepo.ObtenerPorIdAsync(it.productoId) ?? throw new ArgumentException("Producto no existe");
+ if (it.descuento<=0 || it.descuento>100) throw new ArgumentException("Descuento inválido");
+ promo.Productos.Add(new PromocionProducto{ PromocionId=promo.Id, ProductoId=prod.Id, DescuentoPorcentaje=it.descuento });
+ }
+ await _promoRepo.CrearAsync(promo);
+ return promo.Id;
+ }
+
+ public async Task ActualizarEstadoAsync(int promoId, bool activa)
+ {
+ var promo = await _promoRepo.ObtenerPorIdAsync(promoId) ?? throw new ArgumentException("Promoción no encontrada");
+ promo.Activa = activa;
+ await _promoRepo.ActualizarAsync(promo);
+ }
+ }
+}

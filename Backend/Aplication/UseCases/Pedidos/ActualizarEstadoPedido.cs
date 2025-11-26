@@ -1,0 +1,44 @@
+using System;
+using System.Threading.Tasks;
+using Domain.Interfaces;
+using Domain.Entities;
+using Microsoft.Extensions.Logging;
+
+namespace Aplication.UseCases.Pedidos
+{
+    public class ActualizarEstadoPedido
+    {
+        private readonly IPedidoRepositorio _pedidoRepo;
+  private readonly ILogger<ActualizarEstadoPedido> _logger;
+      public ActualizarEstadoPedido(IPedidoRepositorio pedidoRepo, ILogger<ActualizarEstadoPedido> logger){ _pedidoRepo = pedidoRepo; _logger = logger; }
+
+        public async Task EjecutarAsync(Guid pedidoId, EstadoPedido nuevoEstado)
+        {
+          var pedido = await _pedidoRepo.ObtenerPorIdAsync(pedidoId) ?? throw new ArgumentException("Pedido no encontrado");
+  var estadoActual = pedido.Estado;
+_logger.LogInformation("Intentando transición pedido {PedidoId} de {EstadoActual} a {EstadoNuevo}", pedidoId, estadoActual, nuevoEstado);
+            if (estadoActual == nuevoEstado) { _logger.LogInformation("Estado sin cambio pedido {PedidoId} permanece {Estado}", pedidoId, estadoActual); return; }
+            if (!TransicionValida(estadoActual, nuevoEstado))
+ {
+                _logger.LogWarning("Transición inválida pedido {PedidoId}: {EstadoActual} -> {EstadoNuevo}", pedidoId, estadoActual, nuevoEstado);
+    throw new InvalidOperationException($"Transición inválida: {estadoActual} -> {nuevoEstado}");
+      }
+   pedido.Estado = nuevoEstado;
+      pedido.HistorialEstados.Add(new PedidoEstadoHistorial { Id = Guid.NewGuid(), PedidoId = pedido.Id, Estado = pedido.Estado, CambioEn = DateTime.UtcNow });
+            await _pedidoRepo.ActualizarAsync(pedido);
+  _logger.LogInformation("Transición exitosa pedido {PedidoId} ahora {EstadoNuevo}", pedidoId, nuevoEstado);
+        }
+
+    private bool TransicionValida(EstadoPedido actual, EstadoPedido nuevo)
+        {
+            if (actual == nuevo) return false;
+   // Cancelar siempre permitido excepto si ya está cancelado o finalizado
+         if (nuevo == EstadoPedido.CANCELADO && actual != EstadoPedido.CANCELADO && actual != EstadoPedido.FINALIZADO) return true;
+  if (actual == EstadoPedido.CREADO && nuevo == EstadoPedido.EN_PREPARACION) return true; // cubre alias PENDIENTE
+      if (actual == EstadoPedido.EN_PREPARACION && nuevo == EstadoPedido.LISTO) return true;
+          if (actual == EstadoPedido.LISTO && nuevo == EstadoPedido.ENTREGADO) return true;
+  if (actual == EstadoPedido.ENTREGADO && nuevo == EstadoPedido.FINALIZADO) return true;
+     return false;
+        }
+    }
+}

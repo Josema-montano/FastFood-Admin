@@ -1,0 +1,59 @@
+﻿using Domain.Interfaces;
+using Domain.Entities;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+
+namespace Aplication.UseCases.POS
+{
+ public class CancelarVenta
+ {
+ private readonly IVentaRepositorio _ventaRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ private readonly IMovimientoInventarioRepositorio _movimientoRepo;
+ private readonly IDevolucionRepositorio _devolucionRepo;
+ public CancelarVenta(IVentaRepositorio ventaRepo, IProductoRepositorio productoRepo, IMovimientoInventarioRepositorio movimientoRepo, IDevolucionRepositorio devolucionRepo)
+ {
+ _ventaRepo = ventaRepo;
+ _productoRepo = productoRepo;
+ _movimientoRepo = movimientoRepo;
+ _devolucionRepo = devolucionRepo;
+ }
+
+ public async Task EjecutarAsync(int ventaId, string motivo, int? clienteId = null)
+ {
+ if (string.IsNullOrWhiteSpace(motivo)) throw new ArgumentException("Debe indicar un motivo de cancelación");
+ var venta = await _ventaRepo.ObtenerPorIdAsync(ventaId) ?? throw new KeyNotFoundException("Venta no encontrada");
+ if (venta.Cancelada) throw new InvalidOperationException("La venta ya está cancelada");
+ // Devolver stock y registrar movimiento
+ foreach (var det in venta.Detalles)
+ {
+ var producto = await _productoRepo.ObtenerPorIdAsync(det.ProductoId) ?? throw new ArgumentException($"Producto {det.ProductoId} no encontrado");
+ producto.Stock += det.Cantidad;
+ await _productoRepo.ActualizarAsync(producto);
+ await _movimientoRepo.RegistrarAsync(new MovimientoInventario
+ {
+ ProductoId = det.ProductoId,
+ Fecha = DateTime.UtcNow,
+ Cantidad = det.Cantidad,
+ Tipo = TipoMovimientoInventario.Ingreso,
+ Motivo = $"Cancelación de venta: {motivo}",
+ ReferenciaId = ventaId
+ });
+ // Si el motivo es devolucion, registrar en devoluciones
+ if (motivo.Trim().ToLower() == "devolucion")
+ {
+ await _devolucionRepo.RegistrarAsync(new Devolucion
+ {
+ ProductoId = det.ProductoId,
+ ClienteId = clienteId ?? venta.ClienteId,
+ Cantidad = det.Cantidad,
+ Motivo = motivo,
+ Fecha = DateTime.UtcNow
+ });
+ }
+ }
+ await _ventaRepo.CancelarAsync(ventaId, motivo);
+ }
+ }
+}

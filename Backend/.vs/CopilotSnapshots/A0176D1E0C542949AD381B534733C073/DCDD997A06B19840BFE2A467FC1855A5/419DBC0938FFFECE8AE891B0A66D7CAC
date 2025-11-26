@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Domain.Entities
+{
+ public class Producto
+ {
+ public Guid Id { get; set; }
+ public string Codigo { get; set; } = string.Empty;
+ public string Nombre { get; set; } = string.Empty;
+ public string Descripcion { get; set; } = string.Empty;
+ public decimal PrecioCompra { get; set; }
+ public decimal PrecioVenta { get; set; }
+ public int Stock { get; set; }
+ public int StockMinimo { get; set; }
+ public Guid? ProveedorId { get; set; }
+ public Proveedor? Proveedor { get; set; }
+ public ICollection<PromocionProducto> Promociones { get; set; } = new List<PromocionProducto>();
+ }
+}

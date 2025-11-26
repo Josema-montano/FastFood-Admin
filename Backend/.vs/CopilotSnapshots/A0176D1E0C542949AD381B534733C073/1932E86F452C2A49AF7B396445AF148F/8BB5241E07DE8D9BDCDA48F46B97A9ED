@@ -1,0 +1,100 @@
+﻿using Aplication.Mapping;
+using Aplication.UseCases.Clientes;
+using Aplication.UseCases.Devoluciones;
+using Aplication.UseCases.Inventario;
+using Aplication.UseCases.Productos;
+using Aplication.UseCases.Promociones;
+using Aplication.UseCases.Proveedores;
+using Domain.Interfaces;
+using Infraestructure.Data;
+using Infraestructure.Repositorios;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+// Configurar DbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Configurar AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// Registrar Repositorios
+builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+builder.Services.AddScoped<IProveedorRepositorio, ProveedorRepositorio>();
+builder.Services.AddScoped<IProductoRepositorio, ProductoRepositorio>();
+builder.Services.AddScoped<IPromocionRepositorio, PromocionRepositorio>();
+builder.Services.AddScoped<IDevolucionRepositorio, DevolucionRepositorio>();
+builder.Services.AddScoped<IMovimientoInventarioRepositorio, MovimientoInventarioRepositorio>();
+
+// Registrar Casos de Uso - Clientes
+builder.Services.AddScoped<CrearCliente>();
+builder.Services.AddScoped<ActualizarCliente>();
+builder.Services.AddScoped<EliminarCliente>();
+builder.Services.AddScoped<ObtenerClientePorId>();
+builder.Services.AddScoped<ListarClientes>();
+
+// Registrar Casos de Uso - Proveedores
+builder.Services.AddScoped<CrearProveedor>();
+builder.Services.AddScoped<ActualizarProveedor>();
+builder.Services.AddScoped<EliminarProveedor>();
+builder.Services.AddScoped<ObtenerProveedorPorId>();
+builder.Services.AddScoped<ObtenerProveedorConProductos>();
+builder.Services.AddScoped<ListarProveedores>();
+
+// Registrar Casos de Uso - Productos
+builder.Services.AddScoped<CrearProducto>();
+builder.Services.AddScoped<ActualizarProducto>();
+builder.Services.AddScoped<EliminarProducto>();
+builder.Services.AddScoped<ObtenerProductoPorId>();
+builder.Services.AddScoped<ObtenerProductoPorCodigo>();
+builder.Services.AddScoped<ListarProductos>();
+
+// Registrar Casos de Uso - Promociones
+builder.Services.AddScoped<CrearPromocion>();
+builder.Services.AddScoped<ActualizarPromocion>();
+builder.Services.AddScoped<EliminarPromocion>();
+builder.Services.AddScoped<ObtenerPromocionPorId>();
+builder.Services.AddScoped<ListarPromociones>();
+
+// Registrar Casos de Uso - Devoluciones
+builder.Services.AddScoped<RegistrarDevolucion>();
+builder.Services.AddScoped<ObtenerDevolucionPorId>();
+builder.Services.AddScoped<ListarDevoluciones>();
+
+// Registrar Casos de Uso - Inventario
+builder.Services.AddScoped<ActualizarInventario>();
+builder.Services.AddScoped<ListarMovimientosPorProducto>();
+builder.Services.AddScoped<GenerarAlertasStockMinimo>();
+
+// Configurar JSON para ignorar ciclos de referencia
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+  });
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

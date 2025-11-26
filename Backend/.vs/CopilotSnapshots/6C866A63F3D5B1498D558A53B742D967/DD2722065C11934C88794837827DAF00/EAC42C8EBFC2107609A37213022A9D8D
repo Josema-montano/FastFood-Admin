@@ -1,0 +1,22 @@
+﻿using Aplication.UseCases.Reportes;
+using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+ [ApiController]
+ [Route("api/reportes")]
+ public class ReportesController : ControllerBase
+ {
+ private readonly GenerarReporteInventario _reporteInventario;
+ public ReportesController(GenerarReporteInventario reporteInventario){ _reporteInventario = reporteInventario; }
+
+ [HttpGet("inventario")]
+ public async Task<IActionResult> Inventario([FromQuery] string generadoPor="sistema")
+ {
+ Reporte r = await _reporteInventario.EjecutarAsync(generadoPor);
+ return Ok(r);
+ }
+ }
+}

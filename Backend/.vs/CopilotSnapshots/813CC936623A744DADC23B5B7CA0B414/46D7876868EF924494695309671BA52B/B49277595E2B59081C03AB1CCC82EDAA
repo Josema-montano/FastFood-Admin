@@ -1,0 +1,55 @@
+﻿using Aplication.DTOs;
+using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Threading.Tasks;
+
+namespace Aplication.UseCases.Pedidos
+{
+ public class CrearPedido
+ {
+ private readonly IPedidoRepositorio _pedidoRepo;
+ private readonly IProductoRepositorio _productoRepo;
+ private readonly IInventarioRepositorio _inventarioRepo;
+ public CrearPedido(IPedidoRepositorio pedidoRepo, IProductoRepositorio productoRepo, IInventarioRepositorio inventarioRepo)
+ { _pedidoRepo = pedidoRepo; _productoRepo = productoRepo; _inventarioRepo = inventarioRepo; }
+
+ public async Task<Guid> EjecutarAsync(PedidoDTO dto)
+ {
+ if(string.IsNullOrWhiteSpace(dto.Mesa)) throw new ArgumentException("Mesa requerida");
+ var pedido = new Pedido
+ {
+ Id = Guid.NewGuid(),
+ Fecha = DateTime.UtcNow,
+ Estado = EstadoPedido.CREADO, // inicial uniforme
+ UsuarioId = string.IsNullOrEmpty(dto.UsuarioId) ? null : Guid.Parse(dto.UsuarioId),
+ Mesa = dto.Mesa,
+ Notas = dto.Notas
+ };
+ decimal total =0m;
+ foreach (var det in dto.Detalles)
+ {
+ var prod = await _productoRepo.ObtenerPorIdAsync(det.ProductoId) ?? throw new ArgumentException("Producto no encontrado");
+ var inv = await _inventarioRepo.ObtenerPorProductoIdAsync(det.ProductoId) ?? throw new InvalidOperationException("Inventario no encontrado para producto");
+ if (inv.Stock < det.Cantidad) throw new InvalidOperationException($"Stock insuficiente para {prod.Nombre}");
+ inv.Stock -= det.Cantidad;
+ inv.ActualizadoEn = DateTime.UtcNow;
+ await _inventarioRepo.ActualizarAsync(inv);
+ var subtotal = det.Cantidad * prod.Precio;
+ pedido.Detalles.Add(new DetallePedido
+ {
+ Id = Guid.NewGuid(),
+ ProductoId = det.ProductoId,
+ Cantidad = det.Cantidad,
+ PrecioUnitario = prod.Precio,
+ Subtotal = subtotal
+ });
+ total += subtotal;
+ }
+ pedido.Total = total;
+ pedido.HistorialEstados.Add(new PedidoEstadoHistorial{ Id=Guid.NewGuid(), PedidoId=pedido.Id, Estado=pedido.Estado, CambioEn=DateTime.UtcNow});
+ await _pedidoRepo.CrearAsync(pedido);
+ return pedido.Id;
+ }
+ }
+}
